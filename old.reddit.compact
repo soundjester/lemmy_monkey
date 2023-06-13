@@ -72,7 +72,7 @@
 		//size of vote counter
 		GM_addStyle(".unselectable.pointer.font-weight-bold.text-muted.px-1 { font-size: 1.2em; }");
     		//font sizes
-    		GM_addStyle(".h5, h5 {  font-size: 1rem; }");
+    		GM_addStyle(".h5, h5 {  font-size: 1rem !important; }");
     		//commenting areas and styles
 		GM_addStyle(".comments { margin-left: 1em !important; }");
 		GM_addStyle(".comment p {  max-width: 840px }");
