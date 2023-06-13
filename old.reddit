@@ -95,7 +95,16 @@
 		// Apply MoveCommentCollapseButton to dynamically loaded elements
 		ApplyMoveCommentCollapseButton(document.documentElement);
 
-		// the tagline needs to be moved to before any .row instance, but I can't figure it out.  Removing for now...
-		document.getElementById("tagline").remove();
+
+		// the tagline needs to be moved to before any .row instance  //document.getElementById("tagline").remove();
+		var div_list = document.querySelectorAll("div#app");
+		var div_array = [...div_list];
+
+		div_array.forEach(container => {
+				var firstTargDiv = container.querySelector("div#tagline");
+				var secondTargDiv = container.querySelector(".mt-4.p-0.fl-1");
+				//-- Swap last to first.
+				container.insertBefore (firstTargDiv, secondTargDiv);
+		});
 	}
 })();
