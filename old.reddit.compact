@@ -86,7 +86,7 @@
 		//Tighten up display of individual post listings
 		GM_addStyle(".post-listing{ margin: 0.25rem 0 !important; padding: 0.25rem 0 !important;}");
 		GM_addStyle(".post-listing picture img.rounded-circle{ width:1.25rem; height:1.25rem;}");
-		GM_addStyle(".post-listing .d-none .row .col-sm-2 { max-width:120px; }");
+		GM_addStyle(".post-listing .d-none .row .col-sm-2 { max-width:100px; }");
 		GM_addStyle(".post-listing .d-none .row .col-sm-9 { display:flex; align-items:unset !important; }");
 		//entire page display tweaks
 		GM_addStyle("#app > div > .container-lg { max-width: 100% !important; margin-left: 1em !important;}");
