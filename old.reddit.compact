@@ -65,7 +65,7 @@
 		GM_addStyle(".mt-3, .my-3 { margin-top: 0.1rem !important; }");
 		GM_addStyle(".mt-4, .my-4 { margin-top: 0.1rem !important; }");
     		//control size of thumbnails
-		GM_addStyle(".thumbnail { height: 75px; min-height: 75px !important; max-height: 75px !important; min-width: 75px !important; max-width: 75px !important;}"); //keep thumbnails as square as we can and about the size of each post row
+		GM_addStyle(".thumbnail { height: 70px; min-height: 70px !important; max-height: 70px !important; min-width: 70px !important; max-width: 70px !important;}"); //keep thumbnails as square as we can and about the size of each post row
 		GM_addStyle(".vote-bar { margin-top: 0.1em !important; }");
 		//controls size of bottom post buttons, post comment count, vote button arrows
 		GM_addStyle(".btn {font-size:0.75rem !important;}");
