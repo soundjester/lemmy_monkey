@@ -69,6 +69,7 @@
 		GM_addStyle(".comment textarea {  max-width: 840px }");		
 		GM_addStyle(".flex-grow-1 {  flex-grow: 0 !important; }"); // needed to keep tools with comment box
 		GM_addStyle(".comment .details > div > div > .md-div > p {font-size:0.9rem;}");
+		GM_addStyle(".form-group.row {  max-width: 60%; }"); //same text area thing as comments, but for posting from the top-level in a thread
 		GM_addStyle("#tagline {margin-left:1em;}");
 		//Look, I said I wanted to see NSFW and I meant it!
 		GM_addStyle(".img-blur {filter: none !important; -webkit-filter: none !important; -moz-filter:none !important; -o-filter: none !important; -ms-filter: none !important;}");
