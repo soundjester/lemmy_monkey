@@ -50,7 +50,7 @@
 
   //Lemmy to old.Reddit style reformats (to be used for custom stylesheet at a later date)
 	if (isLemmy) {
-		GM_addStyle(".container-fluid, .container-lg, .container-md, .container-sm, .container-xl { margin-right: unset !important; margin-left: unset !important; padding-right: unset !important; padding-left: unset !important;}");
+		GM_addStyle(".container-fluid, .container-lg, .container-md, .container-sm, .container-xl { margin-right: unset !important; margin-left: unset !important; padding-left: unset !important;}");
 		GM_addStyle(".container, .container-lg, .container-md, .container-sm, .container-xl { max-width: 100% !important; }");
 		GM_addStyle(".col-md-4 { flex: 0 0 20% !important; max-width: 20%; }");
 		GM_addStyle(".col-md-8 { flex: 0 0 80% !important; max-width: 80%; }");
