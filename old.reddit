@@ -51,22 +51,22 @@
 		GM_addStyle(".vote-bar { margin-top: 15px !important; }");
 		GM_addStyle(".comments { margin-left: 1em !important; }");
 		GM_addStyle(".comment .details > div > div > .md-div > p {font-size:0.9rem;}");
-    //Look, I said I wanted to see NSFW and I meant it!
-    GM_addStyle(".img-blur {filter: none !important; -webkit-filter: none !important; -moz-filter:none !important; -o-filter: none !important; -ms-filter: none !important;}");
-    //bottom post buttons, post comment count, vote button arrows
+    		//Look, I said I wanted to see NSFW and I meant it!
+    		GM_addStyle(".img-blur {filter: none !important; -webkit-filter: none !important; -moz-filter:none !important; -o-filter: none !important; -ms-filter: none !important;}");
+    		//bottom post buttons, post comment count, vote button arrows
 		GM_addStyle(".btn {font-size:0.75rem !important;}");
-    //vote count
+		//vote count
 		GM_addStyle(".unselectable.pointer.font-weight-bold.text-muted.px-1 { font-size: 1.2em; }");
-    //Tighten up display of individual post listings
+    		//Tighten up display of individual post listings
 		GM_addStyle(".post-listing{ margin: 0.25rem 0 !important; padding: 0.25rem 1rem !important;}");
 		GM_addStyle(".post-listing picture img.rounded-circle{ width:1.25rem; height:1.25rem;}");
-    GM_addStyle(".post-listing .d-none .row .col-sm-2 { max-width:120px; }");
+    		GM_addStyle(".post-listing .d-none .row .col-sm-2 { max-width:120px; }");
 		GM_addStyle(".post-listing .d-none .row .col-sm-9 { display:flex; align-items:center;}");
-    //entire page display tweaks
+    		//entire page display tweaks
 		GM_addStyle("#app > div > .container-lg { max-width: 100% !important;}");
 		GM_addStyle("#app > nav > .container-lg { max-width: 100% !important;}");
 		GM_addStyle("#app > .mt-4 > .container-lg hr.my-3 { display: none;}");
-    GM_addStyle("#app > .mt-4 > .container-lg { margin:0; padding:0;}");
+    		GM_addStyle("#app > .mt-4 > .container-lg { margin:0; padding:0;}");
 		/* post index layout */
 		GM_addStyle("#app > .mt-4 > .container-lg > .row  { display: flex; flex-wrap:nowrap; margin: 0 !important;}");
 		GM_addStyle("#app > .mt-4 > .container-lg > .row > main { display: flex; flex-wrap:wrap; flex-basis:calc(100% - 450px); max-width:100%;}");
