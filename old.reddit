@@ -65,6 +65,8 @@
 		GM_addStyle(".thumbnail { height: 100px; max-height: 100px; min-width: 100px !important;}"); //keep thumbnails as square as we can and about the size of each post row
 		GM_addStyle(".vote-bar { margin-top: 15px !important; }");
 		GM_addStyle(".comments { margin-left: 1em !important; }");
+		GM_addStyle(".comment p {  max-width: 840px }");
+		GM_addStyle(".comment textarea {  max-width: 840px }");		
 		GM_addStyle(".comment .details > div > div > .md-div > p {font-size:0.9rem;}");
 		GM_addStyle("#tagline {margin-left:1em;}");
 		//Look, I said I wanted to see NSFW and I meant it!
