@@ -23,8 +23,7 @@
 		const sheet = style.sheet;
 		sheet.insertRule(css, (sheet.rules || sheet.cssRules || []).length);
 	}
-
-
+	
 	function MoveCommentCollapseButton(container) {
 		var firstTargDiv = container.querySelector(".btn.btn-sm.text-muted");
 		var secondTargDiv = container.querySelector(".mr-2");
@@ -57,34 +56,34 @@
 		GM_addStyle(".col-sm-2 { flex: 0 0 10% !important; max-width: 10% }");
 		GM_addStyle(".col-1 { flex: 0 0 4% !important; max-width: 5% !important; }");
 		GM_addStyle(".col-8 { max-width: 100% !important; }");
-    //GM_addStyle(".col-12.col-md-8 { padding-left: unset !important; }");
-    GM_addStyle(".col-12.col-sm-9 { margin-left: 1em !important; }");
-    //control verital padding
-    GM_addStyle(".mb-1, .my-1 { margin-bottom: 0.1rem !important; }");
+    		//GM_addStyle(".col-12.col-md-8 { padding-left: unset !important; }");
+    		GM_addStyle(".col-12.col-sm-9 { margin-left: 1em !important; }");
+    		//control verital padding
+    		GM_addStyle(".mb-1, .my-1 { margin-bottom: 0.1rem !important; }");
 		GM_addStyle(".mb-2, .my-2 { margin-bottom: 0.1rem !important; }");
 		GM_addStyle(".mb-3, .my-3 { margin-bottom: 0.1rem !important; }");
 		GM_addStyle(".mt-3, .my-3 { margin-top: 0.1rem !important; }");
 		GM_addStyle(".mt-4, .my-4 { margin-top: 0.1rem !important; }");
-    //control size of thumbnails
+    		//control size of thumbnails
 		GM_addStyle(".thumbnail { height: 100px; min-height: 100px !important; max-height: 100px !important; min-width: 100px !important; max-width: 100px !important;}"); //keep thumbnails as square as we can and about the size of each post row
-    GM_addStyle(".embed-responsive-item { height: 100px; min-height: 100px !important; max-height: 100px !important; min-width: 100px !important; max-width: 100px !important;}"); //keep thumbnails as square as we can and about the size of each post row
+    		GM_addStyle(".embed-responsive-item { height: 100px; min-height: 100px !important; max-height: 100px !important; min-width: 100px !important; max-width: 100px !important;}"); //keep thumbnails as square as we can and about the size of each post row
 		GM_addStyle(".vote-bar { margin-top: 0.1em !important; }");
 		//controls size of bottom post buttons, post comment count, vote button arrows
 		GM_addStyle(".btn {font-size:0.75rem !important;}");
 		//size of vote counter
 		GM_addStyle(".unselectable.pointer.font-weight-bold.text-muted.px-1 { font-size: 1.2em; }");
-    //font sizes
-    //GM_addStyle(".h5, h5 {  font-size: 1rem !important; }");
-    //commenting areas and styles
+    		//font sizes
+    		//GM_addStyle(".h5, h5 {  font-size: 1rem !important; }");
+    		//commenting areas and styles
 		GM_addStyle(".comments { margin-left: 1em !important; }");
 		GM_addStyle(".comment p {  max-width: 840px }");
 		GM_addStyle(".comment textarea {  max-width: 840px }");
-    GM_addStyle(".flex-grow-1 {  flex-grow: 0 !important; }"); // needed to keep tools with comment box
+    		GM_addStyle(".flex-grow-1 {  flex-grow: 0 !important; }"); // needed to keep tools with comment box
 		GM_addStyle(".comment .details > div > div > .md-div > p {font-size:0.9rem;}");
-    GM_addStyle(".form-row {width:50%}");
-    GM_addStyle("#community_table { width:99%;}");
+    		GM_addStyle(".form-row {width:50%}");
+    		GM_addStyle("#community_table { width:99%;}");
 		//GM_addStyle(".form-group.row {  max-width: 60%; }"); //this isn't working like I wanted
-    GM_addStyle("#tagline {margin-left:1em;}");
+    		GM_addStyle("#tagline {margin-left:1em;}");
 		//Look, I said I wanted to see NSFW and I meant it!
 		GM_addStyle(".img-blur {filter: none !important; -webkit-filter: none !important; -moz-filter:none !important; -o-filter: none !important; -ms-filter: none !important;}");
 		//Tighten up display of individual post listings
@@ -93,7 +92,7 @@
 		GM_addStyle(".post-listing .d-none .row .col-sm-2 { max-width:100px; }"); //thumbnail width control (keep it square, dang it!)
 		GM_addStyle(".post-listing .d-none .row .col-sm-9 { display:flex; align-items:unset !important; }");
 		//entire page display tweaks
-    GM_addStyle(".main-content-wrapper { margin-left: -15px; }");
+    		GM_addStyle(".main-content-wrapper { margin-left: -15px; }");
 		GM_addStyle("#app > div > .container-lg { max-width: 99% !important; margin-left: 1em !important;}");
 		GM_addStyle("#app > nav > .container-lg { max-width: 100% !important;}");
 		GM_addStyle("#app > .mt-4 > .container-lg hr.my-3 { display: none;}");
@@ -115,14 +114,14 @@
 
 		// the tagline needs to be moved to before any .row instance
 		//document.getElementById("tagline").remove();
-    var div_list = document.querySelectorAll("div#app");
+    		var div_list = document.querySelectorAll("div#app");
 		var div_array = [...div_list];
 
-    div_array.forEach(container => {
-        var firstTargDiv = container.querySelector("div#tagline");
-        var secondTargDiv = container.querySelector(".mt-4.p-0.fl-1");
-        //-- Swap last to first.
-        container.insertBefore (firstTargDiv, secondTargDiv);
-    });
+    		div_array.forEach(container => {
+        		var firstTargDiv = container.querySelector("div#tagline");
+        		var secondTargDiv = container.querySelector(".mt-4.p-0.fl-1");
+        		//-- Swap last to first.
+        		container.insertBefore (firstTargDiv, secondTargDiv);
+    		});
 	}
 })();
