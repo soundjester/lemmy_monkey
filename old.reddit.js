@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Compact Lemmy to Old.Reddit Re-format (Observer)
+// @name         Lemmy to Old.Reddit Re-format (Observer)
 // @namespace    http://tampermonkey.net/
 // @version      1.3
 // @description  Reformat widescreen desktop to look more like Reddit
@@ -24,6 +24,7 @@
 		sheet.insertRule(css, (sheet.rules || sheet.cssRules || []).length);
 	}
 
+
 	function MoveCommentCollapseButton(container) {
 		var firstTargDiv = container.querySelector(".btn.btn-sm.text-muted");
 		var secondTargDiv = container.querySelector(".mr-2");
@@ -47,7 +48,7 @@
 		observer.observe(element, { childList: true, subtree: true });
 	}
 
-  // Lemmy to old.Reddit style reformats (to be used for custom stylesheet at a later date)
+  //Lemmy to old.Reddit style reformats (to be used for custom stylesheet at a later date)
 	if (isLemmy) {
 		//GM_addStyle(".container-fluid, .container-lg, .container-md, .container-sm, .container-xl { margin-right: unset !important; margin-left: unset !important; padding-left: unset !important;}"); //this is not needed
 		GM_addStyle(".container, .container-lg, .container-md, .container-sm, .container-xl { max-width: 100% !important; }");
@@ -58,27 +59,27 @@
 		GM_addStyle(".col-1 { flex: 0 0 4% !important; max-width: 4% !important; }");
 		GM_addStyle(".col-8 { max-width: 100% !important; }");
 		// specific column combos that need padding adjustment
-		GM_addStyle(".col-12.col-md-8 { padding-left: unset !important; }");
-		GM_addStyle(".col-12.col-sm-9 { padding-left: unset !important; }");
+		//GM_addStyle(".col-12.col-md-8 { padding-left: unset !important; }"); //not needed for larger thumbnails
+		GM_addStyle(".col-12.col-sm-9 { margin-left: 1em !important; }");
 		// bootstrap padding controls - shame I have to modify these...
 		GM_addStyle(".pl-1, .px-1 { padding-left: 0 !important; padding-right: 0 !important; }");
 		GM_addStyle(".pl-3, .px-3 { padding-left: 0 !important; padding-right: 0 !important; }");
-		// control verital padding
+		//control verital padding
 		GM_addStyle(".mb-1, .my-1 { margin-bottom: 0.1rem !important; }");
 		GM_addStyle(".mb-2, .my-2 { margin-bottom: 0.1rem !important; }");
 		//GM_addStyle(".mb-3, .my-3 { margin-bottom: 0.1rem !important; }"); //not needed; this collapses padding between button rows
 		GM_addStyle(".mt-3, .my-3 { margin-top: 0.1rem !important; }");
 		GM_addStyle(".mt-4, .my-4 { margin-top: 0.1rem !important; }");
 		//control size of thumbnails
-		GM_addStyle(".thumbnail { height: 70px; min-height: 70px !important; max-height: 70px !important; min-width: 70px !important; max-width: 70px !important;}"); //keep thumbnails as square as we can and about the size of each post row
-		GM_addStyle(".embed-responsive-item { height: 70px; min-height: 70px !important; max-height: 70px !important; min-width: 70px !important; max-width: 70px !important;}"); //keep thumbnails as square as we can and about the size of each post row
-		GM_addStyle(".vote-bar { margin-top: 0.1em !important; }");
-		// controls size of bottom post buttons, post comment count, vote button arrows
-		GM_addStyle(".btn { font-size:0.75rem !important; }");
-		// size of vote counter
+		GM_addStyle(".thumbnail { height: 100px; min-height: 100px !important; max-height: 100px !important; min-width: 100px !important; max-width: 100px !important;}"); //keep thumbnails as square as we can and about the size of each post row
+		GM_addStyle(".embed-responsive-item { height: 100px; min-height: 100px !important; max-height: 100px !important; min-width: 100px !important; max-width: 100px !important;}"); //keep thumbnails as square as we can and about the size of each post row
+		GM_addStyle(".vote-bar { margin-top: 1.5em !important; }");
+		//controls size of bottom post buttons, post comment count, vote button arrows
+		GM_addStyle(".btn {font-size:0.75rem !important;}");
+		//size of vote counter
 		GM_addStyle(".unselectable.pointer.font-weight-bold.text-muted.px-1 { font-size: 1.2em; }");
-		// font sizes
-		GM_addStyle(".h5, h5 {  font-size: 1rem !important; margin-bottom: 0.1rem !important;}"); //post title
+		//font sizes
+		//GM_addStyle(".h5, h5 {  font-size: 1rem !important; }"); //not needed for larger thumbnails
 		// commenting areas and styles
 		GM_addStyle(".comments { margin-left: 1em !important; }");
 		GM_addStyle(".comment { margin-top: 0.2em; }"); //added some top margin between comment sorting buttons and comment section
@@ -108,7 +109,7 @@
 		//GM_addStyle("#app > .mt-4 > .container-lg { margin:0; padding:0;}"); //this is causing alignment problems accross the different page types (main page, comments, search, communities)
 		// post index layout
 		//GM_addStyle(".main-content-wrapper { margin-left: -15px; }"); //nope.
-		GM_addStyle("#app > .mt-4 > .container-lg > .row  { margin: unset !important;}");
+		//GM_addStyle("#app > .mt-4 > .container-lg > .row  { margin: unset !important;}");
 		GM_addStyle("#app > .mt-4 > .container-lg > .row > main { max-width:100%;}");
 		// post layout
 		GM_addStyle("#app > .mt-4 > .container-lg > .row > aside{ font-size:0.7rem;}");
@@ -122,7 +123,7 @@
 		// Apply MoveCommentCollapseButton to dynamically loaded elements
 		ApplyMoveCommentCollapseButton(document.documentElement);
 
-		// the tagline needs to be moved to before any .row instance, otherwise the alignment goes all goofy - there's a cleaner way to do this, but this will serve for now.
+		// the tagline needs to be moved to before any .row instance
 		//document.getElementById("tagline").remove();
 		var div_list = document.querySelectorAll("div#app");
 		var div_array = [...div_list];
