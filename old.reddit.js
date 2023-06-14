@@ -24,7 +24,6 @@
 		sheet.insertRule(css, (sheet.rules || sheet.cssRules || []).length);
 	}
 
-
 	function MoveCommentCollapseButton(container) {
 		var firstTargDiv = container.querySelector(".btn.btn-sm.text-muted");
 		var secondTargDiv = container.querySelector(".mr-2");
