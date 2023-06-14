@@ -111,7 +111,7 @@
 		//GM_addStyle("#app > .mt-4 > .container-lg > .row  { margin: unset !important;}");
 		GM_addStyle("#app > .mt-4 > .container-lg > .row > main { max-width:100%;}");
 		// post layout
-		GM_addStyle("#app > .mt-4 > .container-lg > .row > aside{ font-size:0.7rem;}");
+		//GM_addStyle("#app > .mt-4 > .container-lg > .row > aside{ font-size:0.7rem;}"); //controls the font size in the sidebar - no longer needed
 		GM_addStyle("#app > .mt-4 > .container-lg > .row > .col-md-8 { width:calc(100% - 450px);}");
 		GM_addStyle("#app > .mt-4 > .container-lg > .row > .col-md-4 { width:450px;}");
 
