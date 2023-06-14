@@ -7,9 +7,11 @@ There are currently two versions:
 - old.reddit -- this is a fairly loose interpretation and is represented in the screenshot below.
 - old.reddit.compact -- a much (MUCH) tighter implementation of the above.
 
-## Screenshot of current old.reddit script
-![old.reddit screenshot](https://github.com/soundjester/lemmy_monkey/blob/5a37f6fbdfe6ffbc65fd7bb3171ba1f2dc71bf96/Current%20Version%20Screenshot%20v0.7.png)
+## Screenshots of available scripts
+
+###old.reddit.js
+![old.reddit screenshot](https://github.com/soundjester/lemmy_monkey/blob/ff2fcc2ce43f908f123e3f8114164dfd5a96d580/screenshots/old.reddit.png)
 
 
-##old.reddit.compact
-![old.reddit.compact screenshot](https://github.com/soundjester/lemmy_monkey/blob/68232411fddd3c5362f72521b2933184a55f356a/Current%20Version%20Screenshot%20-%20Compact.png)
+###old.reddit.compact.js
+![old.reddit.compact screenshot](https://github.com/soundjester/lemmy_monkey/blob/ff2fcc2ce43f908f123e3f8114164dfd5a96d580/screenshots/old.reddit.compact.png)
