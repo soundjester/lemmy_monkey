@@ -75,7 +75,8 @@
     		//font sizes
     		GM_addStyle(".h5, h5 {  font-size: 1rem !important; }");
     		//commenting areas and styles
-		GM_addStyle(".comments { margin-left: 1em !important; margin-top: 0.5em; }"); //added some top margin between comment sorting buttons and comment section
+		GM_addStyle(".comments { margin-left: 1em !important; }"); 
+		GM_addStyle(".comment { margin-top: 0.2em !important; }");  //added some top margin between comment sorting buttons and comment section
 		GM_addStyle(".comment p {  max-width: 840px }");
 		GM_addStyle(".comment textarea {  max-width: 840px }");
     		GM_addStyle(".flex-grow-1 {  flex-grow: 0 !important; }"); // needed to keep tools with comment box
