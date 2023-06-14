@@ -5,7 +5,6 @@
 // @description  Reformat widescreen desktop to look more like Reddit
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world
 // @match        https://*/*
-// @exclude      https://lemmynsfw.com/*
 // ==/UserScript==
 
 (function() {
