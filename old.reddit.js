@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Lemmy to Old.Reddit Re-format (Observer)
 // @namespace    http://tampermonkey.net/
-// @version      1.3
+// @version      1.4
 // @description  Reformat widescreen desktop to look more like Reddit
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world
 // @match        https://*/*
