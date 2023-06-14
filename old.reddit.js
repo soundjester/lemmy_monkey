@@ -74,6 +74,7 @@
 		GM_addStyle(".embed-responsive-item { height: 100px; min-height: 100px !important; max-height: 100px !important; min-width: 100px !important; max-width: 100px !important;}"); //keep thumbnails as square as we can and about the size of each post row
 		GM_addStyle(".position-relative.mb-2 { max-width: 730px; }"); //community banner image - currently restricted to Lemmy default size, since that what mods/admins would optimize for
 		GM_addStyle(".vote-bar { margin-top: 1.5em !important; }");
+		GM_addStyle(".navbar-nav { margin-top: 0px !important; margin-bottom: 0px !important; }");
 		//controls size of bottom post buttons, post comment count, vote button arrows
 		GM_addStyle(".btn {font-size:0.75rem !important;}");
 		//size of vote counter
