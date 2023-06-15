@@ -7,6 +7,8 @@ There are currently two versions:
 - old.reddit.user.js -- this is a fairly loose interpretation and is represented in the screenshot below.
 - old.reddit.compact.user.js -- a much (MUCH) tighter implementation of the above.
 
+This script is (or should be) theme agnostic.  It has been tested with darlkly, darkly-red, litely, and litely-red.
+
 ## Screenshots of available scripts
 
 ###old.reddit.user.js
