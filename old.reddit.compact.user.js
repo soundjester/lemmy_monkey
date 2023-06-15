@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Compact Lemmy to Old.Reddit Re-format (Observer)
 // @namespace    http://tampermonkey.net/
-// @version      1.4
+// @version      1.5
 // @description  Reformat widescreen desktop to look more like Reddit
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world
 // @match        https://*/*
@@ -89,7 +89,8 @@
 		GM_addStyle(".comment .details > div > div > .md-div > p { font-size:0.9rem; }");
 		GM_addStyle(".flex-grow-1 {  flex-grow: 0 !important; }"); // needed to keep tools with comment box
 		GM_addStyle(".form-row { width:50% }");
-		GM_addStyle("#community_table { width:99%; }"); //stop going beyond the width of the screen!
+		GM_addStyle(".table-sm td, .table-sm th {   padding: .1rem;   vertical-align: middle; }");      //do need this!
+		//GM_addStyle("#community_table { width:99%; }"); //stop going beyond the width of the screen!  //don't need this anymore
 		// some instances include a tag line
 		GM_addStyle("#tagline {margin-left:1em;}");
 		// Look, I said I wanted to see NSFW and I meant it!
