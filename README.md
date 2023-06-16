@@ -17,9 +17,9 @@ This script is (or should be) theme agnostic.  It has been tested with darlkly, 
 
 ## Screenshots of available scripts
 
-###old.reddit.user.js
+### old.reddit.user.js
 ![old.reddit screenshot](https://github.com/soundjester/lemmy_monkey/blob/ff2fcc2ce43f908f123e3f8114164dfd5a96d580/screenshots/old.reddit.png)
 
 
-###old.reddit.compact.user.js
+### old.reddit.compact.user.js
 ![old.reddit.compact screenshot](https://github.com/soundjester/lemmy_monkey/blob/ff2fcc2ce43f908f123e3f8114164dfd5a96d580/screenshots/old.reddit.compact.png)
