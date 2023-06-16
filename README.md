@@ -9,6 +9,12 @@ There are currently two versions:
 
 This script is (or should be) theme agnostic.  It has been tested with darlkly, darkly-red, litely, and litely-red.
 
+## Installation
+
+1. Click your desired script from the shared code
+2. Click the "Raw" button at on the top right of the script header area
+3. Proceed according to the instructions for your userscript manager
+
 ## Screenshots of available scripts
 
 ###old.reddit.user.js
