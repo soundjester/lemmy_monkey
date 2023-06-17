@@ -117,6 +117,8 @@
 		//GM_addStyle("#app > .mt-4 > .container-lg > .row > aside{ font-size:0.7rem;}"); //controls the font size in the sidebar - no longer needed
 		GM_addStyle("#app > .mt-4 > .container-lg > .row > .col-md-8 { width:calc(100% - 450px);}");
 		GM_addStyle("#app > .mt-4 > .container-lg > .row > .col-md-4 { width:450px;}");
+		// Fix user drop down menu position
+		GM_addStyle(".dropdown-content {right: 0px;}");
 
 		// Move comment collapse buttons for existing elements
 		var divList = document.querySelectorAll(".d-flex.flex-wrap.align-items-center.text-muted.small");
