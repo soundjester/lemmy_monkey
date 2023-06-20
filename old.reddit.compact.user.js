@@ -1,37 +1,65 @@
 // ==UserScript==
 // @name         Compact Lemmy to Old.Reddit Re-format (Observer)
 // @namespace    http://tampermonkey.net/
-// @version      1.6
+// @version      1.7
 // @description  Reformat widescreen desktop to look more like Reddit
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
 // @match        https://*/*
 // source-url    https://github.com/soundjester/lemmy_monkey/
 // ==/UserScript==
-
 (function() {
-	'use strict';
+    'use strict';
+    //Thank you God!
+    var isLemmy;
+    try {
+        isLemmy = document.head.querySelector("[name~=Description][content]").content === "Lemmy";
+    } catch (_er) {
+        isLemmy = false;
+    }
 
-	var isLemmy = document.head.querySelector("[name~=Description][content]")?.content === "Lemmy";
+    function isMobileUser() {
+        if (navigator.userAgent.match(/Android/i)
+            || navigator.userAgent.match(/webOS/i)
+            || navigator.userAgent.match(/iPhone/i)
+            || navigator.userAgent.match(/iPad/i)
+            || navigator.userAgent.match(/iPod/i)
+            || navigator.userAgent.match(/BlackBerry/i)
+            || navigator.userAgent.match(/Windows Phone/i)) {
+            return true;
+        } else {
+            return false;
+        }
+    };
 
-	function GM_addStyle(css) {
-		const style = document.getElementById("GM_addStyleBy8626") || (function() {
-			const style = document.createElement('style');
-			style.type = 'text/css';
-			style.id = "GM_addStyleBy8626";
-			document.head.appendChild(style);
-			return style;
-		})();
-		const sheet = style.sheet;
-		sheet.insertRule(css, (sheet.rules || sheet.cssRules || []).length);
-	}
+    //special thanks to StackOverflow - the one true source of all code, amen.
+    function GM_addStyle(css) {
+        const style = document.getElementById("GM_addStyleBy8626") || (function() {
+            const style = document.createElement('style');
+            style.type = 'text/css';
+            style.id = "GM_addStyleBy8626";
+            document.head.appendChild(style);
+            return style;
+        })();
+        const sheet = style.sheet;
+        sheet.insertRule(css, (sheet.rules || sheet.cssRules || []).length);
+    }
+
+    function makeClickableHeaders () {
+        document.querySelectorAll("button[aria-label='Collapse'], button[aria-label='Expand']").forEach(function (it) {
+            if (typeof it.parentNode.dataset['clickableHeader'] !== 'string') {
+                it.parentNode.addEventListener('click', function() {
+                    it.click();
+                });
+                it.parentNode.setAttribute('data-clickable-header', true);
+            }
+        });
+    }
 
 	function MoveCommentCollapseButton(container) {
 		var firstTargDiv = container.querySelector(".btn.btn-sm.text-muted");
 		var secondTargDiv = container.querySelector(".mr-2");
 		//-- Swap last to first.
-  	if(firstTargDiv !== null && secondTargDiv !== null){
-			container.insertBefore(firstTargDiv, secondTargDiv);
-  	}
+		container.insertBefore(firstTargDiv, secondTargDiv);
 	}
 
 	function ApplyMoveCommentCollapseButton(element) {
@@ -39,7 +67,7 @@
 			for (let mutation of mutationsList) {
 				if (mutation.type === 'childList') {
 					for (let addedNode of mutation.addedNodes) {
-						if (typeof addedNode.matches == 'function' && addedNode.matches('.d-flex.flex-wrap.align-items-center.text-muted.small')) {
+						if (addedNode.matches('.d-flex.flex-wrap.align-items-center.text-muted.small')) {
 							MoveCommentCollapseButton(addedNode);
 						}
 					}
@@ -49,14 +77,15 @@
 
 		observer.observe(element, { childList: true, subtree: true });
 	}
-
   // Lemmy to old.Reddit style reformats (to be used for custom stylesheet at a later date)
 	if (isLemmy) {
 		//GM_addStyle(".container-fluid, .container-lg, .container-md, .container-sm, .container-xl { margin-right: unset !important; margin-left: unset !important; padding-left: unset !important;}"); //this is not needed
 		GM_addStyle(".container, .container-lg, .container-md, .container-sm, .container-xl { max-width: 100% !important; }");
 		// bootstrap column widths
 		GM_addStyle(".col-md-4 { flex: 0 0 20% !important; max-width: 20%; }");
-		GM_addStyle(".col-md-8 { flex: 0 0 80% !important; max-width: 80%; }");
+		if (!isMobileUser()) {
+			GM_addStyle(".col-md-8 { flex: 0 0 80% !important; max-width: 80%; }");
+		}
 		GM_addStyle(".col-sm-2 { flex: 0 0 10% !important; max-width: 10% }");
 		GM_addStyle(".col-1 { flex: 0 0 4% !important; max-width: 4% !important; }");
 		GM_addStyle(".col-8 { max-width: 100% !important; }");
@@ -80,12 +109,15 @@
 		GM_addStyle(".navbar-nav { margin-top: 0px !important; margin-bottom: 0px !important; }");
 		// controls size of bottom post buttons, post comment count, vote button arrows
 		GM_addStyle(".btn { font-size:0.75rem !important; }");
+		GM_addStyle(".btn-group.btn-group-toggle.flex-wrap.mr-3.mb-2 { padding-bottom: 0.5rem !important; vertical-align: top; }"); //top comment doesn't need to hug the comment sort buttons.
 		// size of vote counter
 		GM_addStyle(".unselectable.pointer.font-weight-bold.text-muted.px-1 { font-size: 1.2em; }");
 		// font sizes
 		GM_addStyle(".h5, h5 {  font-size: 1rem !important; margin-bottom: 0.1rem !important;}"); //post title
 		// commenting areas and styles
-		GM_addStyle(".comments { margin-left: 1em !important; }");
+		if (!isMobileUser()) {
+			GM_addStyle(".comments {  margin-left: 1em !important;  }"); // removed max-width parameter that squished nested comments
+		}
 		GM_addStyle(".comment { margin-top: 0.2em; }"); //added some top margin between comment sorting buttons and comment section
 		GM_addStyle(".comment p { max-width: 840px }"); //this can be adjuted to preference.  840px looks nice though.
 		GM_addStyle(".comment textarea {  max-width: 840px }");
@@ -139,9 +171,9 @@
 			var firstTargDiv = container.querySelector("div#tagline");
 			var secondTargDiv = container.querySelector(".mt-4.p-0.fl-1");
 			//-- Swap last to first.
-     	if(firstTargDiv !== null && secondTargDiv !== null){
+     			if(firstTargDiv !== null && secondTargDiv !== null){
 				container.insertBefore(firstTargDiv, secondTargDiv);
-  		}
+  			}
 		});
 	}
 })();
