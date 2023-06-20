@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Lemmy to Old.Reddit Re-format (Observer)
 // @namespace    http://tampermonkey.net/
-// @version      1.7
+// @version      1.7.1
 // @description  Reformat widescreen desktop to look more like Reddit
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
 // @match        https://*/*
@@ -9,6 +9,8 @@
 
 (function() {
 	'use strict';
+	//Thank you God!
+	var isLemmy;
 	    try {
 	        isLemmy = document.head.querySelector("[name~=Description][content]").content === "Lemmy";
 	    } catch (_er) {
