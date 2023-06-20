@@ -14,7 +14,7 @@ This script is (or should be) theme agnostic.  It has been tested with darlkly, 
 ### Option A - Greasyfork
 
 1. Compact version (old.reddit.compact.user.js) - https://greasyfork.org/en/scripts/469093-compact-lemmy-to-old-reddit-re-format-observer
-2. Larger thumbnails (old.reddit.user.js) - https://greasyfork.org/en/scripts/469093-compact-lemmy-to-old-reddit-re-format-observer
+2. Larger thumbnails (old.reddit.user.js) - https://greasyfork.org/en/scripts/469094-lemmy-to-old-reddit-re-format-observer
 
 ### Option B - Direct from github
 
