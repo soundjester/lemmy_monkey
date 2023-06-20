@@ -1,16 +1,16 @@
 // ==UserScript==
 // @name         Lemmy to Old.Reddit Re-format (Observer)
 // @namespace    http://tampermonkey.net/
-// @version      1.5
+// @version      1.6
 // @description  Reformat widescreen desktop to look more like Reddit
-// @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world
+// @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
 // @match        https://*/*
 // ==/UserScript==
 
 (function() {
 	'use strict';
 
-	var isLemmy = document.head.querySelector("[name~=Description][content]").content === "Lemmy";
+	var isLemmy = document.head.querySelector("[name~=Description][content]")?.content === "Lemmy";
 
 	function GM_addStyle(css) {
 		const style = document.getElementById("GM_addStyleBy8626") || (function() {
@@ -28,7 +28,9 @@
 		var firstTargDiv = container.querySelector(".btn.btn-sm.text-muted");
 		var secondTargDiv = container.querySelector(".mr-2");
 		//-- Swap last to first.
-		container.insertBefore(firstTargDiv, secondTargDiv);
+  		if(firstTargDiv !== null && secondTargDiv !== null){
+			container.insertBefore(firstTargDiv, secondTargDiv);
+  		}
 	}
 
 	function ApplyMoveCommentCollapseButton(element) {
@@ -36,7 +38,7 @@
 			for (let mutation of mutationsList) {
 				if (mutation.type === 'childList') {
 					for (let addedNode of mutation.addedNodes) {
-						if (addedNode.matches('.d-flex.flex-wrap.align-items-center.text-muted.small')) {
+						if (typeof addedNode.matches == 'function' && addedNode.matches('.d-flex.flex-wrap.align-items-center.text-muted.small')) {
 							MoveCommentCollapseButton(addedNode);
 						}
 					}
@@ -136,7 +138,9 @@
 			var firstTargDiv = container.querySelector("div#tagline");
 			var secondTargDiv = container.querySelector(".mt-4.p-0.fl-1");
 			//-- Swap last to first.
-			container.insertBefore (firstTargDiv, secondTargDiv);
+     			if(firstTargDiv !== null && secondTargDiv !== null){
+				container.insertBefore(firstTargDiv, secondTargDiv);
+  			}
 		});
 	}
 })();
