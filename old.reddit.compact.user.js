@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Compact Lemmy to Old.Reddit Re-format (Observer)
 // @namespace    http://tampermonkey.net/
-// @version      1.8
+// @version      1.9
 // @description  Reformat widescreen desktop to look more like Reddit
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
 // @match        https://*/*
@@ -125,6 +125,16 @@
 		GM_addStyle(".dropdown-content {right: 0px;}");
     		/* collapse on the very left - credit to ShittyKopper */
     		GM_addStyle(".comment .d-flex button[aria-label='Collapse'], .comment .d-flex button[aria-label='Expand'] {    order: -1;  }");
+		
+		//* Specific screen size (mobile) adjustments *//
+		GM_addStyle("@media screen and (max-width:1100px) and (min-width:731px) {.col-md-4 { flex: 0 0 33.3333% !important; max-width: 33.3333%;  }}");
+		GM_addStyle("@media screen and (max-width:1100px) and (min-width:731px) {.col-md-8 { flex: 0 0 66.6666% !important; max-width: 66.6666%; }}");
+		GM_addStyle("@media screen and (max-width:1100px) and (min-width:731px) {.col-1 { flex: 0 0 4% !important; max-width: 6% !important;}}");
+		GM_addStyle("@media screen and (max-width:1100px) and (min-width:731px) {.col-12.col-md-8 { padding-left: 1em !important; }}");
+		GM_addStyle("@media screen and (max-width:1100px) and (min-width:731px) {.col-12.col-sm-9 { padding-left: 1em !important; }}");
+		GM_addStyle("@media screen and (max-width:730px) {.col-md-8 { flex: 0 0 100% !important; max-width: 100%; }}");
+		GM_addStyle("@media screen and (max-width:730px) {.pl-3, .px-3 { padding-left: 1rem !important; padding-right: 1rem !important;}}");
+		GM_addStyle("@media screen and (max-width:730px) {.pl-3, .px-3 { padding-left: 1rem !important; padding-right: 1rem !important;}}");
 
 		// Move comment collapse buttons for existing elements
 		//var divList = document.querySelectorAll(".d-flex.flex-wrap.align-items-center.text-muted.small");
