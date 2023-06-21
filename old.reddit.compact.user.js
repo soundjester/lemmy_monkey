@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Compact Lemmy to Old.Reddit Re-format (Observer)
 // @namespace    http://tampermonkey.net/
-// @version      1.7
+// @version      1.8
 // @description  Reformat widescreen desktop to look more like Reddit
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
 // @match        https://*/*
@@ -31,7 +31,7 @@
         } else {
             return false;
         }
-    };
+    }
 
     //special thanks to StackOverflow - the one true source of all code, amen.
     function GM_addStyle(css) {
@@ -46,39 +46,6 @@
         sheet.insertRule(css, (sheet.rules || sheet.cssRules || []).length);
     }
 
-    function makeClickableHeaders () {
-        document.querySelectorAll("button[aria-label='Collapse'], button[aria-label='Expand']").forEach(function (it) {
-            if (typeof it.parentNode.dataset['clickableHeader'] !== 'string') {
-                it.parentNode.addEventListener('click', function() {
-                    it.click();
-                });
-                it.parentNode.setAttribute('data-clickable-header', true);
-            }
-        });
-    }
-
-	function MoveCommentCollapseButton(container) {
-		var firstTargDiv = container.querySelector(".btn.btn-sm.text-muted");
-		var secondTargDiv = container.querySelector(".mr-2");
-		//-- Swap last to first.
-		container.insertBefore(firstTargDiv, secondTargDiv);
-	}
-
-	function ApplyMoveCommentCollapseButton(element) {
-		const observer = new MutationObserver(function(mutationsList) {
-			for (let mutation of mutationsList) {
-				if (mutation.type === 'childList') {
-					for (let addedNode of mutation.addedNodes) {
-						if (addedNode.matches('.d-flex.flex-wrap.align-items-center.text-muted.small')) {
-							MoveCommentCollapseButton(addedNode);
-						}
-					}
-				}
-			}
-		});
-
-		observer.observe(element, { childList: true, subtree: true });
-	}
   // Lemmy to old.Reddit style reformats (to be used for custom stylesheet at a later date)
 	if (isLemmy) {
 		//GM_addStyle(".container-fluid, .container-lg, .container-md, .container-sm, .container-xl { margin-right: unset !important; margin-left: unset !important; padding-left: unset !important;}"); //this is not needed
@@ -156,13 +123,15 @@
 		GM_addStyle("#app > .mt-4 > .container-lg > .row > .col-md-4 { width:450px;}");
 		// Fix user drop down menu position
 		GM_addStyle(".dropdown-content {right: 0px;}");
+    		/* collapse on the very left - credit to ShittyKopper */
+    		GM_addStyle(".comment .d-flex button[aria-label='Collapse'], .comment .d-flex button[aria-label='Expand'] {    order: -1;  }");
 
 		// Move comment collapse buttons for existing elements
-		var divList = document.querySelectorAll(".d-flex.flex-wrap.align-items-center.text-muted.small");
-		divList.forEach(MoveCommentCollapseButton);
+		//var divList = document.querySelectorAll(".d-flex.flex-wrap.align-items-center.text-muted.small");
+		//divList.forEach(MoveCommentCollapseButton);
 
 		// Apply MoveCommentCollapseButton to dynamically loaded elements
-		ApplyMoveCommentCollapseButton(document.documentElement);
+		//ApplyMoveCommentCollapseButton(document.documentElement);
 
 		// the tagline needs to be moved to before any .row instance, otherwise the alignment goes all goofy - there's a cleaner way to do this, but this will serve for now.
 		//document.getElementById("tagline").remove();
