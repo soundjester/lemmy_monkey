@@ -50,3 +50,10 @@ This script is (or should be) theme agnostic.  It has been tested with darlkly, 
 ![image](https://user-images.githubusercontent.com/11245779/247589269-b60a581c-474d-4b98-8bae-bc7da27f94a8.png)
 
 
+## 430px:
+### main posts
+![image](https://github.com/soundjester/lemmy_monkey/assets/11245779/6604c19f-30a9-43da-bc2b-5f29b9b9f2fd)
+
+### comments
+![image](https://github.com/soundjester/lemmy_monkey/assets/11245779/7e6265e7-9c32-4edd-b969-8ee91752ac99)
+
