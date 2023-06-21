@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Lemmy to Old.Reddit Re-format (Observer)
 // @namespace    http://tampermonkey.net/
-// @version      1.7.1
+// @version      1.8
 // @description  Reformat widescreen desktop to look more like Reddit
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
@@ -19,42 +19,6 @@
 	        isLemmy = false;
 	    }
 	
-	function GM_addStyle(css) {
-		const style = document.getElementById("GM_addStyleBy8626") || (function() {
-			const style = document.createElement('style');
-			style.type = 'text/css';
-			style.id = "GM_addStyleBy8626";
-			document.head.appendChild(style);
-			return style;
-		})();
-		const sheet = style.sheet;
-		sheet.insertRule(css, (sheet.rules || sheet.cssRules || []).length);
-	}
-
-	function MoveCommentCollapseButton(container) {
-		var firstTargDiv = container.querySelector(".btn.btn-sm.text-muted");
-		var secondTargDiv = container.querySelector(".mr-2");
-		//-- Swap last to first.
-  		if(firstTargDiv !== null && secondTargDiv !== null){
-			container.insertBefore(firstTargDiv, secondTargDiv);
-  		}
-	}
-
-	function ApplyMoveCommentCollapseButton(element) {
-		const observer = new MutationObserver(function(mutationsList) {
-			for (let mutation of mutationsList) {
-				if (mutation.type === 'childList') {
-					for (let addedNode of mutation.addedNodes) {
-						if (typeof addedNode.matches == 'function' && addedNode.matches('.d-flex.flex-wrap.align-items-center.text-muted.small')) {
-							MoveCommentCollapseButton(addedNode);
-						}
-					}
-				}
-			}
-		});
-
-		observer.observe(element, { childList: true, subtree: true });
-	}
     function isMobileUser() {
         if (navigator.userAgent.match(/Android/i)
             || navigator.userAgent.match(/webOS/i)
@@ -68,6 +32,19 @@
             return false;
         }
     };
+
+    //special thanks to StackOverflow - the one true source of all code, amen.
+    function GM_addStyle(css) {
+        const style = document.getElementById("GM_addStyleBy8626") || (function() {
+            const style = document.createElement('style');
+            style.type = 'text/css';
+            style.id = "GM_addStyleBy8626";
+            document.head.appendChild(style);
+            return style;
+        })();
+        const sheet = style.sheet;
+        sheet.insertRule(css, (sheet.rules || sheet.cssRules || []).length);
+    }
 
   //Lemmy to old.Reddit style reformats (to be used for custom stylesheet at a later date)
 	if (isLemmy) {
@@ -148,13 +125,13 @@
 		GM_addStyle(".dropdown-content {right: 0px;}");
 
 		// Move comment collapse buttons for existing elements
-		var divList = document.querySelectorAll(".d-flex.flex-wrap.align-items-center.text-muted.small");
-		divList.forEach(MoveCommentCollapseButton);
+		//var divList = document.querySelectorAll(".d-flex.flex-wrap.align-items-center.text-muted.small");
+		//divList.forEach(MoveCommentCollapseButton);
 
 		// Apply MoveCommentCollapseButton to dynamically loaded elements
-		ApplyMoveCommentCollapseButton(document.documentElement);
+		//ApplyMoveCommentCollapseButton(document.documentElement);
 
-		// the tagline needs to be moved to before any .row instance
+		// the tagline needs to be moved to before any .row instance, otherwise the alignment goes all goofy - there's a cleaner way to do this, but this will serve for now.
 		//document.getElementById("tagline").remove();
 		var div_list = document.querySelectorAll("div#app");
 		var div_array = [...div_list];
