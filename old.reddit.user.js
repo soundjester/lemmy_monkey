@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Lemmy to Old.Reddit Re-format (Observer)
 // @namespace    http://tampermonkey.net/
-// @version      1.9.2
+// @version      1.9.3
 // @description  Reformat widescreen desktop to look more like Reddit
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
@@ -131,7 +131,8 @@
     		GM_addStyle("@media screen and (max-width:1100px) and (min-width:576px) {.col-12.col-md-8 { padding-left: 1em !important; }}");
 		GM_addStyle("@media screen and (max-width:1100px) and (min-width:576px) {.col-12.col-sm-9 { padding-left: 1em !important; }}");
 		GM_addStyle("@media screen and (max-width:730px) and (min-width:576px) {.col-md-8 { flex: 0 0 100% !important; max-width: 100%; }}");
-		GM_addStyle("@media screen and (max-width:730px) and (min-width:576px) {.pl-1, .px-1 {   padding-left: unset !important; } }}");
+    		GM_addStyle("@media screen and (max-width:730px) and (min-width:576px) {.pl-1, .px-1 { padding-left: unset !important; }}");
+    		GM_addStyle("@media screen and (max-width:730px) and (min-width:576px) {.pl-3, .px-3 { padding-left: 1rem !important; padding-right: 1rem !important; }}");
 		
 		// Move comment collapse buttons for existing elements
 		//var divList = document.querySelectorAll(".d-flex.flex-wrap.align-items-center.text-muted.small");
