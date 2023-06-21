@@ -52,7 +52,7 @@
 		// navbar padding
 		GM_addStyle(".navbar { padding-left: 0 !important; padding-right: 1em !important; }");
 		GM_addStyle(".navbar-nav { margin-top: 0px !important; margin-bottom: 0px !important; }");
-		// control verital padding
+		// control vertical padding
 		GM_addStyle(".mb-1, .my-1 { margin-bottom: 0.1rem !important; }");
 		GM_addStyle(".mb-2, .my-2 { margin-bottom: 0.1rem !important; }");
 		GM_addStyle(".mt-3, .my-3 { margin-top: 0.1rem !important; }");
