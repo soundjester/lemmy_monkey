@@ -5,6 +5,8 @@
 // @description  Reformat widescreen desktop to look more like Reddit
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
 // @match        https://*/*
+// @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
+// @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
 // source-url    https://github.com/soundjester/lemmy_monkey/
 // ==/UserScript==
 (function() {
