@@ -17,7 +17,6 @@
 	} catch (_er) {
 		isLemmy = false;
 	}
-
 	// Lemmy to old.Reddit style reformats (portable custom stylesheet)
 	if (isLemmy) {
 		const css = `
