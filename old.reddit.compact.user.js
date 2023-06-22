@@ -1,13 +1,12 @@
 // ==UserScript==
 // @name         Compact Lemmy to Old.Reddit Re-format (Observer)
 // @namespace    http://tampermonkey.net/
-// @version      1.9.5
+// @version      1.9.5.2
 // @description  Reformat widescreen desktop to look more like Reddit
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
-// @match        https://*/*
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
 // @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
-// source-url    https://github.com/soundjester/lemmy_monkey/
+// @match        https://*/*
 // ==/UserScript==
 (function() {
     'use strict';
@@ -120,8 +119,8 @@
 		//* Specific screen size (mobile) adjustments *//
 		//*********************************************//
 		GM_addStyle("@media screen and (min-width:1981px) {#app { max-width:1980px; margin-left:auto; margin-right:auto;}}");
-		GM_addStyle("@media screen and (min-width:1200px) {.col-md-4 { flex: 0 0 25% !important; max-width: 25%; }}");
-		GM_addStyle("@media screen and (min-width:1200px) {.col-md-8 { flex: 0 0 75% !important; max-width: 75%; }}");
+		GM_addStyle("@media screen and (min-width:1200px) and (max-width:1640px) {.col-md-4 { flex: 0 0 25% !important; max-width: 25%; }}");
+		GM_addStyle("@media screen and (min-width:1200px) and (max-width:1640px) {.col-md-8 { flex: 0 0 75% !important; max-width: 75%; }}");
 		GM_addStyle("@media screen and (max-width:1199px) and (min-width:992px) {.col-md-4 { flex: 0 0 33.3333% !important; max-width: 33.3333%; }}");
 		GM_addStyle("@media screen and (max-width:1199px) and (min-width:992px) {.col-md-8 { flex: 0 0 66.6666% !important; max-width: 66.6666%; }}");
 		GM_addStyle("@media screen and (max-width:1199px) and (min-width:992px) {.navbar { padding-right: 0em !important; }}");
