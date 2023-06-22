@@ -37,15 +37,15 @@
 		/**************************
 		* NSFW automatic un-blur  *
 		***************************/
-		GM_addStyle(".img-blur {filter: none !important; -webkit-filter: none !important; -moz-filter:none !important; -o-filter: none !important; -ms-filter: none !important;}");
+		GM_addStyle(".img-blur {filter: none !important; -webkit-filter: none !important; -moz-filter:none !important; -o-filter: none !important; -ms-filter: none !important; }");
 		/**************************
 		* bootstrap column widths *
 		***************************/
 		GM_addStyle(".container, .container-lg, .container-md, .container-sm, .container-xl { max-width: 100% !important; }"); //main container
 		GM_addStyle(".col-md-4 { flex: 0 0 20% !important; max-width: 20%; padding-right:unset !important; }"); //sidebar width
 		GM_addStyle(".col-md-8 { flex: 0 0 80% !important; max-width: 80%; }"); //main post area (witdh optimized for widescreen)
-		GM_addStyle(".col-sm-2 { flex: 0 0 10% !important; max-width: 10% }");
-		GM_addStyle(".col-sm-9 { flex: 0 0 80% !important; max-width: 80%; }");
+		GM_addStyle(".col-sm-2 { flex: 0 0 10% !important; max-width: 10%; }");
+		GM_addStyle(".col-sm-9 { flex: 0 0 80% !important; max-width: 80%; }"); //post title area between thumbnail and sidebar
 		GM_addStyle(".col-8 { max-width: 100% !important; }");
 		// specific column combos that need padding adjustment
 		GM_addStyle(".col-12.col-md-8 { padding-left: unset !important; }");
@@ -63,7 +63,7 @@
 		**************/
 		//GM_addStyle(".vote-bar { font-size: .85em; }"); //can be modified as you like
 		GM_addStyle(".vote-bar { margin-top: 1em !important; }");
-		GM_addStyle(".vote-bar { flex: 0 0 4% !important; max-width: 4% !important;}");
+		GM_addStyle(".vote-bar { flex: 0 0 4% !important; max-width: 4% !important; }");
 		GM_addStyle(".unselectable.pointer.font-weight-bold.text-muted.px-1 { font-size: 1.2em; }");
 		/*****************
 		* thumbnail area *
@@ -75,8 +75,8 @@
 		* main page posts *
 		*******************/
 		//GM_addStyle(".h5, h5 {  font-size: 1rem !important; margin-bottom: 0.1rem !important;}"); // post title font size
-		GM_addStyle(".post-listing { margin: 0.25rem 0 !important; padding: 0.25rem 0 !important;}"); //can be adjusted smaller, but beyond .25 is gets too tight and individual post spacing starts to appear overlapping
-		GM_addStyle(".post-listing picture img.rounded-circle{ width:1.25rem; height:1.25rem;}");
+		GM_addStyle(".post-listing { margin: 0.25rem 0 !important; padding: 0.25rem 0 !important; }"); //can be adjusted smaller, but beyond .25 is gets too tight and individual post spacing starts to appear overlapping
+		GM_addStyle(".post-listing picture img.rounded-circle{ width:1.25rem; height:1.25rem; }");
 		GM_addStyle(".post-listing .d-none .row .col-sm-2 { max-width:100px; }"); //thumbnail width control (keep it square, dang it!)
 		GM_addStyle(".post-listing .d-none .row .col-sm-9 { display:flex; align-items:unset !important; }");
 		GM_addStyle(".py-0 { font-size:0.85rem !important; }"); //comment number and fediverse/lemmy links
@@ -88,39 +88,39 @@
 		GM_addStyle(".comments:first-child {  padding-top: 0.5rem !important; }"); //top comment doesn't need to hug the comment sort buttons.
 		GM_addStyle(".comments:not(:first-child) {  margin-left: 1em !important; }");
 		GM_addStyle(".comment { margin-top: 0.2em; }");
-		GM_addStyle(".comment p { max-width: 840px }"); //this can be adjuted to preference.  840px looks nice though.
+		GM_addStyle(".comment p { max-width: 840px; }"); //this can be adjuted to preference.  840px looks nice though.
 		GM_addStyle(".col-sm-12 > textarea { resize: both !important; }"); //allow top-level comment box to be resized
 		GM_addStyle(".comment textarea {  max-width: 840px; resize: both !important; }"); //allow comment reply box to be resized
 		GM_addStyle(".flex-grow-1 {  flex-grow: 0 !important; }"); // keep tools with comment box
-		GM_addStyle(".form-row { width:50% }");
+		GM_addStyle(".form-row { width:50%; }");
 		// collapse comment chain on the very left - credit to ShittyKopper
-		GM_addStyle(".comment .d-flex button[aria-label='Collapse'], .comment .d-flex button[aria-label='Expand'] {    order: -1;  }");
+		GM_addStyle(".comment .d-flex button[aria-label='Collapse'], .comment .d-flex button[aria-label='Expand'] { order: -1; }");
 		/******************************
 		* entire page display tweaks  *
 		******************************/
 		GM_addStyle("#app > div > .container-lg { margin-left: 1em !important;}");
 		GM_addStyle("#app > div > .container-lg { max-width: 99% !important; }");
-		GM_addStyle("#app > div > .container-lg { margin-left: unset !important }");
+		GM_addStyle("#app > div > .container-lg { margin-left: unset !important; }");
 		GM_addStyle("#app > nav > .container-lg { max-width: 100% !important;}");
-		GM_addStyle("#app > navbar > .container-lg { margin-left: unset !important }");
-		GM_addStyle("#app > .mt-4 > .container-lg hr.my-3 { display: none;}");
+		GM_addStyle("#app > navbar > .container-lg { margin-left: unset !important; }");
+		GM_addStyle("#app > .mt-4 > .container-lg hr.my-3 { display: none; }");
 		// post index layout
-		GM_addStyle("#app > .mt-4 > .container-lg > .row  { margin: unset !important;}");
-		GM_addStyle("#app > .mt-4 > .container-lg > .row > main { max-width:100%;}");
+		GM_addStyle("#app > .mt-4 > .container-lg > .row  { margin: unset !important; }");
+		GM_addStyle("#app > .mt-4 > .container-lg > .row > main { max-width:100%; }");
 		// post layout
-		GM_addStyle("#app > .mt-4 > .container-lg > .row > .col-md-8 { width:calc(100% - 450px);}");
-		GM_addStyle("#app > .mt-4 > .container-lg > .row > .col-md-4 { width:450px;}");
+		GM_addStyle("#app > .mt-4 > .container-lg > .row > .col-md-8 { width:calc(100% - 450px); }");
+		GM_addStyle("#app > .mt-4 > .container-lg > .row > .col-md-4 { width:450px; }");
 		// Fix user drop down menu position
-		GM_addStyle(".dropdown-content {right: 0px;}");
+		GM_addStyle(".dropdown-content {right: 0px; }");
 		//table styles - primarily used on the "Communities" page
-		GM_addStyle(".table-responsive {   margin-top:0.5em; }");
-		GM_addStyle(".table-sm td, .table-sm th {   padding: .1rem;   vertical-align: middle; }");
+		GM_addStyle(".table-responsive { margin-top:0.5em; }");
+		GM_addStyle(".table-sm td, .table-sm th { padding: .1rem;   vertical-align: middle; }");
 		// some instances include a tag line
-		GM_addStyle("#tagline {margin-left:1em;}");
+		GM_addStyle("#tagline {margin-left:1em; }");
 		//*********************************************//
 		//* Specific screen size (mobile) adjustments *//
 		//*********************************************//
-		GM_addStyle("@media screen and (min-width:1981px) {#app { max-width:1980px; margin-left:auto; margin-right:auto;}}");
+		GM_addStyle("@media screen and (min-width:1981px) {#app { max-width:1980px; margin-left:auto; margin-right:auto; }}");
 		GM_addStyle("@media screen and (min-width:1200px) {.col-md-4 { flex: 0 0 25% !important; max-width: 25%; }}");
 		GM_addStyle("@media screen and (min-width:1200px) {.col-md-8 { flex: 0 0 75% !important; max-width: 75%; }}");
 		GM_addStyle("@media screen and (max-width:1199px) and (min-width:992px) {.col-md-4 { flex: 0 0 33.3333% !important; max-width: 33.3333%; }}");
