@@ -68,9 +68,9 @@
 		/*****************
 		* thumbnail area *
 		******************/
-		GM_addStyle(".post-media { min-width: 100px; max-width: 100px; margin-right:1em; }"); //keep thumbnails as square as we can and about the size of each post row
-		GM_addStyle(".thumbnail { min-height: 100px; max-height: 100px; min-width: 100px; max-width: 100px; }"); //keep thumbnails as square as we can and about the size of each post row
-		GM_addStyle(".embed-responsive { min-height: 100px; max-height: 100px; min-width: 100px; max-width: 100px; }"); //this may be needed for videos/gifs - nothing to test on yet
+		GM_addStyle(".post-media { min-width: 100px !important; max-width: 100px !important; margin-right:1em; }"); //keep thumbnails as square as we can and about the size of each post row
+		GM_addStyle(".thumbnail { min-height: 100px !important; max-height: 100px !important; min-width: 100px !important; max-width: 100px !important; }"); //keep thumbnails as square as we can and about the size of each post row
+		GM_addStyle(".embed-responsive { min-height: 100px !important; max-height: 100px !important; min-width: 100px !important; max-width: 100px !important; }"); //this may be needed for videos/gifs - nothing to test on yet
 		/******************
 		* main page posts *
 		*******************/
