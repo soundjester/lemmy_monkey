@@ -8,7 +8,6 @@
 // @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
 // @match        https://*/*
 // ==/UserScript==
-
 (function() {
     'use strict';
     //Thank you God!
