@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Lemmy to Old.Reddit Re-format (Observer)
 // @namespace    http://tampermonkey.net/
-// @version      1.9.5.2
+// @version      1.9.5.3
 // @description  Reformat widescreen desktop to look more like Reddit
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
@@ -112,6 +112,8 @@
 		GM_addStyle("#app > .mt-4 > .container-lg > .row > .col-md-4 { width:450px; }");
 		// Fix user drop down menu position
 		GM_addStyle(".dropdown-content {right: 0px; }");
+		// Profile and Community Banner size
+		GM_addStyle(".position-relative.mb-2 { max-width: 730px; }");
 		//table styles - primarily used on the "Communities" page
 		GM_addStyle(".table-responsive { margin-top:0.5em; }");
 		GM_addStyle(".table-sm td, .table-sm th { padding: .1rem;   vertical-align: middle; }");
