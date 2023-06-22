@@ -94,11 +94,10 @@
 			/***************/
 			/*can be modified as you like*/
 			 .vote-bar {
-				 font-size: 0.85em;
-			}
-			 .vote-bar {
+				 font-size: 0.85em !important;
 				 flex: 0 0 4% !important;
 				 max-width: 4% !important;
+				 margin-top:unset !important;
 			}
 			/******************/
 			/* thumbnail area */
