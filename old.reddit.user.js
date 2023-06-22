@@ -45,6 +45,7 @@
 		GM_addStyle(".col-md-4 { flex: 0 0 20% !important; max-width: 20%; padding-right:unset !important; }"); //sidebar width
 		GM_addStyle(".col-md-8 { flex: 0 0 80% !important; max-width: 80%; }"); //main post area (witdh optimized for widescreen)
 		GM_addStyle(".col-sm-2 { flex: 0 0 10% !important; max-width: 10% }");
+		GM_addStyle(".col-sm-9 { flex: 0 0 80% !important; max-width: 80%; }");
 		GM_addStyle(".col-8 { max-width: 100% !important; }");
 		// specific column combos that need padding adjustment
 		GM_addStyle(".col-12.col-md-8 { padding-left: unset !important; }");
