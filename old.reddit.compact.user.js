@@ -78,6 +78,7 @@
 		GM_addStyle(".post-listing .d-none .row .col-sm-9 { display:flex; align-items:unset !important; }");
 		GM_addStyle(".py-0 { font-size:0.75rem !important; }"); //comment number and fediverse/lemmy links
 		//GM_addStyle(".btn { font-size:0.75rem !important; }"); //this is deprecated as .py-0 provides more consistent spacing; however, some may prefer the look of smaller text on buttons
+		GM_addStyle(".btn.btn-link.text-monospace.text-muted.small.d-inline-block { padding-top: 0; padding-bottom: 0; }"); //media collapse/expand button - appears after post title
 		/************
 		* comments  *
 		************/
