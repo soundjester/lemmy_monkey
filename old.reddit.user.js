@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Lemmy to Old.Reddit Re-format (Observer)
 // @namespace    http://tampermonkey.net/
-// @version      1.9.5
+// @version      1.9.5.1
 // @description  Reformat widescreen desktop to look more like Reddit
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
@@ -133,7 +133,7 @@
 		GM_addStyle("@media screen and (max-width:768px) {.pl-3, .px-3 { padding-left: 1rem !important; padding-right: 1rem !important; }}");
 		GM_addStyle("@media screen and (max-width:575px) {.col-12.col-md-8 { padding-right: 0em !important; }}");
 		GM_addStyle("@media screen and (max-width:575px) {.col-8 { flex: 0 0 75% !important; max-width: 75%; }}");
-		GM_addStyle("@media screen and (max-width:575px) {.col-4 { flex: 0 0 25% !important; max-width: 25%; justify-content: flex-end !important; display: flex !important;
+		GM_addStyle("@media screen and (max-width:575px) {.col-4 { flex: 0 0 25% !important; max-width: 25%; justify-content: flex-end !important; display: flex !important; }}");
 
 		//move tagline element to be between navbar and content nav buttons
 		var div_list = document.querySelectorAll("div#app");
