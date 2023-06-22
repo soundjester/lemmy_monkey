@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name         Lemmy to Old.Reddit Re-format (Observer)
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/soundjester/lemmy_monkey/
+// @description  Reformat Lemmy instances to the style of old.reddit - larger thumbnails
 // @version      1.9.5.3
 // @description  Reformat widescreen desktop to look more like Reddit
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
