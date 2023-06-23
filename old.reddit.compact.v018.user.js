@@ -7,7 +7,7 @@
 // @match        https://enterprise.lemmy.ml/*
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
 // @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
-// source-url    https://github.com/soundjester/lemmy_monkey/
+// @run-at       document-end
 // ==/UserScript==
 (function() {
 	'use strict';
