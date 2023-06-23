@@ -16,7 +16,7 @@
 	/* 70px - compact default          */
 	/* 100px - large thumbnail default */
 	/***********************************/
- 	var thumbnailSize = "70px";
+ 	var thumbnailSize = "70";
 	/***********************************/
 	//Thank you God!
 	var isLemmy;
@@ -114,22 +114,22 @@
 			/******************/
 			/*keep thumbnails as square as we can and about the size of each post row*/
 			 .post-media {
-				 min-width: `+thumbnailSize+` !important;
-				 max-width: `+thumbnailSize+` !important;
+				 min-width: `+thumbnailSize+`px !important;
+				 max-width: `+thumbnailSize+`px !important;
 				 margin-right: 1em !important;
 			}
 			 .thumbnail {
-				 min-height: `+thumbnailSize+` !important;
-				 max-height: `+thumbnailSize+` !important;
-				 min-width: `+thumbnailSize+` !important;
-				 max-width: `+thumbnailSize+` !important;
+				 min-height: `+thumbnailSize+`px !important;
+				 max-height: `+thumbnailSize+`px !important;
+				 min-width: `+thumbnailSize+`px !important;
+				 max-width: `+thumbnailSize+`px !important;
 			}
 			/*this is needed for videos/gifs*/
 			 .embed-responsive {
-				 min-height: `+thumbnailSize+` !important;
-				 max-height: `+thumbnailSize+` !important;
-				 min-width: `+thumbnailSize+` !important;
-				 max-width: `+thumbnailSize+` !important;
+				 min-height: `+thumbnailSize+`px !important;
+				 max-height: `+thumbnailSize+`px !important;
+				 min-width: `+thumbnailSize+`px !important;
+				 max-width: `+thumbnailSize+`px !important;
 			}
 			/*******************/
 			/* main page posts */
