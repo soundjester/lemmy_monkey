@@ -167,7 +167,7 @@
 			 .comments:not(:first-child) {
 				 margin-left: 1em !important;
 			}
-			 .comment {
+			 .comment.ml-1 {
 				 margin-top: 0.2em;
 			}
 			/*this can be adjuted to preference. 840px looks nice though.*/
@@ -337,5 +337,13 @@
 				container.insertBefore(firstTargDiv, secondTargDiv);
 			}
 		});
+		/*Fix navbar craziness involving the search button*/
+		var nav_list = document.querySelectorAll(".navbar-nav");
+		
+		[...nav_list].forEach(container => {
+			if (!container.className.includes("my-2") && !container.className.includes("ml-auto") && !container.className.includes("ml-1")) {
+				container.className += " " + "my-2";
+			}
+		});		
 	}
 })();
