@@ -2,7 +2,7 @@
 // @name         Lemmy to Old.Reddit Re-format (Observer)
 // @namespace    https://github.com/soundjester/lemmy_monkey/
 // @description  Reformat Lemmy instances to the style of old.reddit - larger thumbnails
-// @version      1.9.5.3
+// @version      1.10
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
 // @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
