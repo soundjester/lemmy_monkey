@@ -133,13 +133,10 @@
 				 font-size: 1rem !important;
 				 margin-bottom: 0.1rem !important;
 			}
-      .small, small {
-        font-size: 80%;
-        font-weight: 400;
-      }
-      .text-muted {
-        font-size: .8rem;
-      }
+			.small, small {
+			        font-size: 80%;
+			        font-weight: 400;
+			}
 			/*can be adjusted smaller, but beyond .25 is gets too tight and individual post spacing starts to appear overlapping*/
 			 .post-listing {
 				 margin: 0.25rem 0 !important;
