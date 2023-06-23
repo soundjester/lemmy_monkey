@@ -68,19 +68,18 @@
 				 max-width: 100% !important;
 			}
 			/* specific column combos that need padding adjustment*/
-      /*
-			 .col-12.col-md-8 {
+			/* .col-12.col-md-8 {
 				 padding-left: unset !important;
 			}
-      */
-      /*
-			 .col-12.col-sm-9 {
+			 */
+			/* .col-12.col-sm-9 {
 				 padding-left: unset !important;
 			}
-      */
+			 */
 			/* navbar padding*/
 			 .navbar {
-				 /*padding-left: 0 !important;*/
+				/*padding-left: 0 !important;
+				*/
 				 padding-right: 1em !important;
 			}
 			 .navbar-nav {
@@ -94,7 +93,6 @@
 			 .mb-2, .my-2 {
 				 margin-bottom: 0.1rem !important;
 			}
-
 			 .mt-3, .my-3 {
 				 margin-top: 0.1rem !important;
 			}
@@ -141,10 +139,10 @@
 				 font-size: 1rem !important;
 				 margin-bottom: 0.1rem !important;
 			}
-      .small, small {
-        font-size: 80%;
-        font-weight: 400;
-      }
+			 .small, small {
+				 font-size: 80%;
+				 font-weight: 400;
+			}
 			/*can be adjusted smaller, but beyond .25 is gets too tight and individual post spacing starts to appear overlapping*/
 			 .post-listing {
 				 margin: 0.25rem 0 !important;
@@ -154,9 +152,10 @@
 				 width: 1.25rem;
 				 height: 1.25rem;
 			}
-      p.d-flex.text-muted.align-items-center.gap-1.small.m-0 {
-        display: none !important;
-      }
+			/*hide link TLD until it is moved back to the old spot*/
+			 p.d-flex.text-muted.align-items-center.gap-1.small.m-0 {
+				 display: none !important;
+			}
 			/*thumbnail width control (keep it square, dang it!)*/
 			 .post-listing .d-none .row .col-sm-2 {
 				 max-width: 100px;
@@ -174,22 +173,29 @@
 			/*.btn {
 				 font-size:0.75rem !important;
 			}
+			*/
 			/*media collapse/expand button - appears after post title for offsite links that have a thumbnail*/
 			 .btn.btn-sm.text-monospace.text-muted.d-inline-block {
 				 padding-top: 0;
 				 padding-bottom: 0;
 			}
-      .text-body.mt-2.d-block{
-        font-size: 0.8rem;
-        display: none !important;
-      }
+			 .text-body.mt-2.d-block{
+				 font-size: 0.8rem;
+				 display: none !important;
+			}
 			/************/
 			/* comments */
 			/************/
-      /* restrict post and comment width - adjust to preference */
-      .md-div {
-        max-width: 940px;
-      }
+			/* restrict post and comment width - adjust to preference */
+			 #postContent {
+				 max-width: 940px;
+			}
+			 .md-div {
+				 max-width: 940px;
+			}
+			 .mb-3.row {
+				 max-width: 965px;
+			}
 			/*top comment doesn't need to hug the comment sort buttons.*/
 			 .comments:first-child {
 				 margin-top: 0.5rem !important;
@@ -198,17 +204,14 @@
 			 div > textarea {
 				 resize: both !important;
 			}
-      .mb-3.row {
-        max-width: 940px;
-      }
-      .ms-1 {
-        margin-left: 1em !important;
-      }
+			 .ms-1 {
+				 margin-left: 1em !important;
+			}
 			/***********/
 			/* sidebar */
 			/***********/
 			 #sidebarContainer {
-  				 padding-right: 1em;
+				 padding-right: 1em;
 			}
 			/******************************/
 			/* entire page display tweaks */
@@ -241,20 +244,20 @@
 			 #app > .mt-4 > .container-lg > .row > .col-md-4 {
 				 width: 450px;
 			}
-	hr {
-		display: none;
-	}
-	/* highlight number of new comments */
-	.text-muted.fst-italic {
-		color: var(--bs-orange) !important;
-	}      
+			 hr {
+				 display: none;
+			}
+			/* highlight number of new comments */
+			 .text-muted.fst-italic {
+				 color: var(--bs-orange) !important;
+			}
 			/* Fix user drop down menu position*/
 			 .dropdown-content {
 				 right: 0px;
 			}
 			/* Profile and Community Banner size */
-			.position-relative.mb-2 {
-				max-width: 730px;
+			 .position-relative.mb-2 {
+				 max-width: 730px;
 			}
 			/*table styles - primarily used on the "Communities" page*/
 			 .table-responsive {
@@ -339,7 +342,7 @@
 					 justify-content: flex-end !important;
 					 display: flex !important;
 				}
-			 }`
+			}`
 
 		const styleTag = document.createElement('style');
 		styleTag.appendChild(document.createTextNode(css));
