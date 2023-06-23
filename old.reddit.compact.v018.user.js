@@ -11,6 +11,13 @@
 // ==/UserScript==
 (function() {
 	'use strict';
+	/***********************************/
+	/* set desired thumbnail size here */
+	/* 70px - compact default          */
+	/* 100px - large thumbnail default */
+	/***********************************/
+ 	var thumbnailSize = "70px";
+	/***********************************/
 	//Thank you God!
 	var isLemmy;
 	try {
@@ -87,6 +94,7 @@
 			 .mb-2, .my-2 {
 				 margin-bottom: 0.1rem !important;
 			}
+
 			 .mt-3, .my-3 {
 				 margin-top: 0.1rem !important;
 			}
@@ -108,22 +116,22 @@
 			/******************/
 			/*keep thumbnails as square as we can and about the size of each post row*/
 			 .post-media {
-				 min-width: 70px !important;
-				 max-width: 70px !important;
+				 min-width: `+thumbnailSize+` !important;
+				 max-width: `+thumbnailSize+` !important;
 				 margin-right: 1em !important;
 			}
 			 .thumbnail {
-				 min-height: 70px !important;
-				 max-height: 70px !important;
-				 min-width: 70px !important;
-				 max-width: 70px !important;
+				 min-height: `+thumbnailSize+` !important;
+				 max-height: `+thumbnailSize+` !important;
+				 min-width: `+thumbnailSize+` !important;
+				 max-width: `+thumbnailSize+` !important;
 			}
 			/*this is needed for videos/gifs*/
 			 .embed-responsive {
-				 min-height: 70px !important;
-				 max-height: 70px !important;
-				 min-width: 70px !important;
-				 max-width: 70px !important;
+				 min-height: `+thumbnailSize+` !important;
+				 max-height: `+thumbnailSize+` !important;
+				 min-width: `+thumbnailSize+` !important;
+				 max-width: `+thumbnailSize+` !important;
 			}
 			/*******************/
 			/* main page posts */
@@ -133,13 +141,10 @@
 				 font-size: 1rem !important;
 				 margin-bottom: 0.1rem !important;
 			}
-			.small, small {
-			        font-size: 80%;
-			        font-weight: 400;
-			}
-.text-muted.fst-italic {
-	color: var(--bs-orange) !important;
-}
+      .small, small {
+        font-size: 80%;
+        font-weight: 400;
+      }
 			/*can be adjusted smaller, but beyond .25 is gets too tight and individual post spacing starts to appear overlapping*/
 			 .post-listing {
 				 margin: 0.25rem 0 !important;
@@ -149,9 +154,9 @@
 				 width: 1.25rem;
 				 height: 1.25rem;
 			}
-p.d-flex.text-muted.align-items-center.gap-1.small.m-0 {
-	display: none !important;
-}
+      p.d-flex.text-muted.align-items-center.gap-1.small.m-0 {
+        display: none !important;
+      }
 			/*thumbnail width control (keep it square, dang it!)*/
 			 .post-listing .d-none .row .col-sm-2 {
 				 max-width: 100px;
@@ -185,10 +190,6 @@ p.d-flex.text-muted.align-items-center.gap-1.small.m-0 {
       .md-div {
         max-width: 940px;
       }
-      /* indent child comments */
- 	.ms-1 {
-        margin-left: 1em !important;
-      }
 			/*top comment doesn't need to hug the comment sort buttons.*/
 			 .comments:first-child {
 				 margin-top: 0.5rem !important;
@@ -199,6 +200,9 @@ p.d-flex.text-muted.align-items-center.gap-1.small.m-0 {
 			}
       .mb-3.row {
         max-width: 940px;
+      }
+      .ms-1 {
+        margin-left: 1em !important;
       }
 			/***********/
 			/* sidebar */
@@ -350,6 +354,7 @@ p.d-flex.text-muted.align-items-center.gap-1.small.m-0 {
 			}
 		});
 		/*Fix navbar craziness involving the search button*/
+    /*
 		var nav_list = document.querySelectorAll(".navbar-nav");
 
 		[...nav_list].forEach(container => {
@@ -357,19 +362,6 @@ p.d-flex.text-muted.align-items-center.gap-1.small.m-0 {
 				container.className += " " + "my-2";
 			}
 		});
-		/* need to move the URL from off-site links to its old location after the post time - WIP*/
-		/*
-		var link_list = document.querySelectorAll("div.row > div.col-12");
-		
-		[...link_list].forEach(container => {
-			var linkItemA = container.querySelectorAll("p.d-flex.text-muted.align-items-center.gap-1.small.m-0");
-			//var linkItemB = container.querySelectorAll(".small");
-			[...linkItemA].forEach(container => {
-				//this moves the URL to the right line, but the wrong place...
-				container.className += " " + "d-inline-flex";
-				//container.parentNode.insertBefore(container," • ")
-			});
-		});
-  		*/
+    */
 	}
 })();
