@@ -11,6 +11,13 @@
 // ==/UserScript==
 (function() {
 	'use strict';
+	/***********************************/
+	/* set desired thumbnail size here */
+	/* 70px - compact default          */
+	/* 100px - large thumbnail default */
+	/***********************************/
+ 	var thumbnailSize = "100px";
+	/***********************************/
 	//Thank you God!
 	var isLemmy;
 	try {
@@ -109,22 +116,22 @@
 			/******************/
 			/*keep thumbnails as square as we can and about the size of each post row*/
 			 .post-media {
-				 min-width: 100px !important;
-				 max-width: 100px !important;
+				 min-width: `+thumbnailSize+` !important;
+				 max-width: `+thumbnailSize+` !important;
 				 margin-right: 1em !important;
 			}
 			 .thumbnail {
-				 min-height: 100px !important;
-				 max-height: 100px !important;
-				 min-width: 100px !important;
-				 max-width: 100px !important;
+				 min-height: `+thumbnailSize+` !important;
+				 max-height: `+thumbnailSize+` !important;
+				 min-width: `+thumbnailSize+` !important;
+				 max-width: `+thumbnailSize+` !important;
 			}
 			/*this is needed for videos/gifs*/
 			 .embed-responsive {
-				 min-height: 100px !important;
-				 max-height: 100px !important;
-				 min-width: 100px !important;
-				 max-width: 100px !important;
+				 min-height: `+thumbnailSize+` !important;
+				 max-height: `+thumbnailSize+` !important;
+				 min-width: `+thumbnailSize+` !important;
+				 max-width: `+thumbnailSize+` !important;
 			}
 			/*******************/
 			/* main page posts */
@@ -234,9 +241,13 @@
 			 #app > .mt-4 > .container-lg > .row > .col-md-4 {
 				 width: 450px;
 			}
-      hr {
-        display: none;
-      }
+	hr {
+		display: none;
+	}
+	/* highlight number of new comments */
+	.text-muted.fst-italic {
+		color: var(--bs-orange) !important;
+	}      
 			/* Fix user drop down menu position*/
 			 .dropdown-content {
 				 right: 0px;
