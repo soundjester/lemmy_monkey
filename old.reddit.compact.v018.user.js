@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Compact Lemmy to old.Reddit Re-format (Lemmy v0.18)
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/soundjester/lemmy_monkey
 // @version      0.0.1
 // @description  Reformat widescreen desktop to look more like Reddit
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
