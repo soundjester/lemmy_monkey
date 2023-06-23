@@ -2,7 +2,7 @@
 // @name         Lemmy to Old.Reddit Re-format (Lv0.18)
 // @namespace    https://github.com/soundjester/lemmy_monkey/
 // @description  Reformat Lemmy instances to the style of old.reddit - compact view
-// @version      0.0.1
+// @version      2.0
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
 // @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
@@ -11,6 +11,13 @@
 // ==/UserScript==
 (function() {
 	'use strict';
+	/***********************************/
+	/* set desired thumbnail size here */
+	/* 70px - compact default          */
+	/* 100px - large thumbnail default */
+	/***********************************/
+ 	var thumbnailSize = "100px";
+	/***********************************/
 	//Thank you God!
 	var isLemmy;
 	try {
@@ -99,45 +106,45 @@
 			/***************/
 			/*can be modified as you like*/
 			 .vote-bar {
-				 font-size: 0.85em !important;
+				 /*font-size: 0.85em !important;*/
 				 flex: 0 0 4% !important;
 				 max-width: 4% !important;
-				 margin-top:unset !important;
+				 margin-top: 1em !important;
 			}
 			/******************/
 			/* thumbnail area */
 			/******************/
 			/*keep thumbnails as square as we can and about the size of each post row*/
 			 .post-media {
-				 min-width: 100px !important;
-				 max-width: 100px !important;
+				 min-width: `+thumbnailSize+` !important;
+				 max-width: `+thumbnailSize+` !important;
 				 margin-right: 1em !important;
 			}
 			 .thumbnail {
-				 min-height: 100px !important;
-				 max-height: 100px !important;
-				 min-width: 100px !important;
-				 max-width: 100px !important;
+				 min-height: `+thumbnailSize+` !important;
+				 max-height: `+thumbnailSize+` !important;
+				 min-width: `+thumbnailSize+` !important;
+				 max-width: `+thumbnailSize+` !important;
 			}
 			/*this is needed for videos/gifs*/
 			 .embed-responsive {
-				 min-height: 100px !important;
-				 max-height: 100px !important;
-				 min-width: 100px !important;
-				 max-width: 100px !important;
+				 min-height: `+thumbnailSize+` !important;
+				 max-height: `+thumbnailSize+` !important;
+				 min-width: `+thumbnailSize+` !important;
+				 max-width: `+thumbnailSize+` !important;
 			}
 			/*******************/
 			/* main page posts */
 			/*******************/
 			/* post title font size*/
-			 .h5, h5 {
+			 /*.h5, h5 {
 				 font-size: 1rem !important;
 				 margin-bottom: 0.1rem !important;
-			}
-      .small, small {
+			}*/
+      /*.small, small {
         font-size: 80%;
         font-weight: 400;
-      }
+      }*/
 			/*can be adjusted smaller, but beyond .25 is gets too tight and individual post spacing starts to appear overlapping*/
 			 .post-listing {
 				 margin: 0.25rem 0 !important;
@@ -159,9 +166,9 @@
 				 align-items: unset !important;
 			}
 			/*comment number and fediverse/lemmy links*/
-			 .ps-0 {
+			/* .ps-0 {
 				 font-size: 0.75rem !important;
-			}
+			}*/
 			/*the below .btn is deprecated as .py-0 (above) provides more consistent spacing;
 			 however, some may prefer the look of smaller text on buttons*/
 			/*.btn {
@@ -234,9 +241,13 @@
 			 #app > .mt-4 > .container-lg > .row > .col-md-4 {
 				 width: 450px;
 			}
-      hr {
-        display: none;
-      }
+	hr {
+		display: none;
+	}
+	/* highlight number of new comments */
+	.text-muted.fst-italic {
+		color: var(--bs-orange) !important;
+	}
 			/* Fix user drop down menu position*/
 			 .dropdown-content {
 				 right: 0px;
