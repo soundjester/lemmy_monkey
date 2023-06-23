@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Compact Lemmy to old.Reddit Re-format (Lemmy v0.18)
 // @namespace    https://github.com/soundjester/lemmy_monkey
-// @version      2.0
+// @version      2.1
 // @description  Reformat widescreen desktop to look more like Reddit
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
 // @match        https://*/*
@@ -204,6 +204,7 @@
 			 div > textarea {
 				 resize: both !important;
 			}
+   			/*increase the indent for child comments*/
 			 .ms-1 {
 				 margin-left: 1em !important;
 			}
