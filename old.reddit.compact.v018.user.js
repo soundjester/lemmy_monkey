@@ -185,6 +185,10 @@ p.d-flex.text-muted.align-items-center.gap-1.small.m-0 {
       .md-div {
         max-width: 940px;
       }
+      /* indent child comments */
+ 	.ms-1 {
+        margin-left: 1em !important;
+      }
 			/*top comment doesn't need to hug the comment sort buttons.*/
 			 .comments:first-child {
 				 margin-top: 0.5rem !important;
