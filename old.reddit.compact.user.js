@@ -167,7 +167,7 @@
 				 padding-top: 0.5rem !important;
 			}
 			/*increase child comment indentation*/
-			 .comments:not(:first-child) {
+			 .comment.ml-1 {
 				 margin-left: 1em !important;
 			}
 			 .comment {
@@ -340,5 +340,13 @@
 				container.insertBefore(firstTargDiv, secondTargDiv);
 			}
 		});
+		/*Fix navbar craziness involving the search button*/
+		var nav_list = document.querySelectorAll(".navbar-nav");
+		
+		[...nav_list].forEach(container => {
+			if (!container.className.includes("my-2") && !container.className.includes("ml-auto") && !container.className.includes("ml-1")) {
+				container.className += " " + "my-2";
+			}
+		});		
 	}
 })();
