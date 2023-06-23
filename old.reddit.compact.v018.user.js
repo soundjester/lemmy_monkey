@@ -7,7 +7,7 @@
 // @match        https://enterprise.lemmy.ml/*
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
 // @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
-// @run-at       document-end
+// @run-at       document-load
 // ==/UserScript==
 (function() {
 	'use strict';
@@ -137,6 +137,9 @@
 			        font-size: 80%;
 			        font-weight: 400;
 			}
+.text-muted.fst-italic {
+	color: var(--bs-orange) !important;
+}
 			/*can be adjusted smaller, but beyond .25 is gets too tight and individual post spacing starts to appear overlapping*/
 			 .post-listing {
 				 margin: 0.25rem 0 !important;
@@ -146,6 +149,9 @@
 				 width: 1.25rem;
 				 height: 1.25rem;
 			}
+p.d-flex.text-muted.align-items-center.gap-1.small.m-0 {
+	display: none !important;
+}
 			/*thumbnail width control (keep it square, dang it!)*/
 			 .post-listing .d-none .row .col-sm-2 {
 				 max-width: 100px;
@@ -348,6 +354,7 @@
 			}
 		});
 		/* need to move the URL from off-site links to its old location after the post time - WIP*/
+		/*
 		var link_list = document.querySelectorAll("div.row > div.col-12");
 		
 		[...link_list].forEach(container => {
@@ -359,5 +366,6 @@
 				//container.parentNode.insertBefore(container," • ")
 			});
 		});
+  		*/
 	}
 })();
