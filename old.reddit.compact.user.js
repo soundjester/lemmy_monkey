@@ -162,6 +162,9 @@
 			/************/
 			/* comments */
 			/************/
+			.card {
+  				 margin-top: .5em !important;
+			}
 			/*top comment doesn't need to hug the comment sort buttons.*/
 			 .comments:first-child {
 				 padding-top: 0.5rem !important;
