@@ -347,13 +347,14 @@
 				container.className += " " + "my-2";
 			}
 		});
-
+		/* need to move the URL from off-site links to its old location after the post time - WIP*/
 		var link_list = document.querySelectorAll("div.row > div.col-12");
 		
 		[...link_list].forEach(container => {
 			var linkItemA = container.querySelectorAll("p.d-flex.text-muted.align-items-center.gap-1.small.m-0");
 			//var linkItemB = container.querySelectorAll(".small");
 			[...linkItemA].forEach(container => {
+				//this moves the URL to the right line, but the wrong place...
 				container.className += " " + "d-inline-flex";
 				//container.parentNode.insertBefore(container," • ")
 			});
