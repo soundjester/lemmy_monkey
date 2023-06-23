@@ -1,15 +1,23 @@
 // ==UserScript==
-// @name         Lemmy to Old.Reddit Re-format (Observer)
+// @name         Lemmy to Old.Reddit Re-format (Lv0.18)
 // @namespace    https://github.com/soundjester/lemmy_monkey/
-// @description  Reformat Lemmy instances to the style of old.reddit - larger thumbnails
-// @version      1.10
+// @description  Reformat Lemmy instances to the style of old.reddit - compact view
+// @version      2.0
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
-// @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
-// @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
+// @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
+// @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
 // @match        https://*/*
+// @run-at       document-load
 // ==/UserScript==
 (function() {
 	'use strict';
+	/***********************************/
+	/* set desired thumbnail size here */
+	/* 70px - compact default          */
+	/* 100px - large thumbnail default */
+	/***********************************/
+ 	var thumbnailSize = "100px";
+	/***********************************/
 	//Thank you God!
 	var isLemmy;
 	try {
@@ -60,15 +68,19 @@
 				 max-width: 100% !important;
 			}
 			/* specific column combos that need padding adjustment*/
+      /*
 			 .col-12.col-md-8 {
 				 padding-left: unset !important;
 			}
+      */
+      /*
 			 .col-12.col-sm-9 {
-				 margin-left: 1em !important;
+				 padding-left: unset !important;
 			}
+      */
 			/* navbar padding*/
 			 .navbar {
-				 padding-left: 0 !important;
+				 /*padding-left: 0 !important;*/
 				 padding-right: 1em !important;
 			}
 			 .navbar-nav {
@@ -82,6 +94,7 @@
 			 .mb-2, .my-2 {
 				 margin-bottom: 0.1rem !important;
 			}
+
 			 .mt-3, .my-3 {
 				 margin-top: 0.1rem !important;
 			}
@@ -93,38 +106,45 @@
 			/***************/
 			/*can be modified as you like*/
 			 .vote-bar {
+				 /*font-size: 0.85em !important;*/
 				 flex: 0 0 4% !important;
 				 max-width: 4% !important;
 				 margin-top: 1em !important;
-			}
-			.unselectable.pointer.font-weight-bold.text-muted.px-1 {
-				font-size: 1.2em;
 			}
 			/******************/
 			/* thumbnail area */
 			/******************/
 			/*keep thumbnails as square as we can and about the size of each post row*/
 			 .post-media {
-				 min-width: 100px !important;
-				 max-width: 100px !important;
+				 min-width: `+thumbnailSize+` !important;
+				 max-width: `+thumbnailSize+` !important;
 				 margin-right: 1em !important;
 			}
 			 .thumbnail {
-				 min-height: 100px !important;
-				 max-height: 100px !important;
-				 min-width: 100px !important;
-				 max-width: 100px !important;
+				 min-height: `+thumbnailSize+` !important;
+				 max-height: `+thumbnailSize+` !important;
+				 min-width: `+thumbnailSize+` !important;
+				 max-width: `+thumbnailSize+` !important;
 			}
 			/*this is needed for videos/gifs*/
 			 .embed-responsive {
-				 min-height: 100px !important;
-				 max-height: 100px !important;
-				 min-width: 100px !important;
-				 max-width: 100px !important;
+				 min-height: `+thumbnailSize+` !important;
+				 max-height: `+thumbnailSize+` !important;
+				 min-width: `+thumbnailSize+` !important;
+				 max-width: `+thumbnailSize+` !important;
 			}
 			/*******************/
 			/* main page posts */
 			/*******************/
+			/* post title font size*/
+			 /*.h5, h5 {
+				 font-size: 1rem !important;
+				 margin-bottom: 0.1rem !important;
+			}*/
+      /*.small, small {
+        font-size: 80%;
+        font-weight: 400;
+      }*/
 			/*can be adjusted smaller, but beyond .25 is gets too tight and individual post spacing starts to appear overlapping*/
 			 .post-listing {
 				 margin: 0.25rem 0 !important;
@@ -134,6 +154,9 @@
 				 width: 1.25rem;
 				 height: 1.25rem;
 			}
+      p.d-flex.text-muted.align-items-center.gap-1.small.m-0 {
+        display: none !important;
+      }
 			/*thumbnail width control (keep it square, dang it!)*/
 			 .post-listing .d-none .row .col-sm-2 {
 				 max-width: 100px;
@@ -143,59 +166,49 @@
 				 align-items: unset !important;
 			}
 			/*comment number and fediverse/lemmy links*/
-			 .py-0 {
+			/* .ps-0 {
 				 font-size: 0.75rem !important;
-			}
+			}*/
 			/*the below .btn is deprecated as .py-0 (above) provides more consistent spacing;
 			 however, some may prefer the look of smaller text on buttons*/
 			/*.btn {
 				 font-size:0.75rem !important;
-			} */
+			}
 			/*media collapse/expand button - appears after post title for offsite links that have a thumbnail*/
-			 .btn.btn-link.text-monospace.text-muted.small.d-inline-block {
+			 .btn.btn-sm.text-monospace.text-muted.d-inline-block {
 				 padding-top: 0;
 				 padding-bottom: 0;
 			}
+      .text-body.mt-2.d-block{
+        font-size: 0.8rem;
+        display: none !important;
+      }
 			/************/
 			/* comments */
 			/************/
+      /* restrict post and comment width - adjust to preference */
+      .md-div {
+        max-width: 940px;
+      }
 			/*top comment doesn't need to hug the comment sort buttons.*/
 			 .comments:first-child {
-				 padding-top: 0.5rem !important;
-			}
-			/*increase child comment indentation*/
-			 .comment.ml-1 {
-				 margin-left: 1em !important;
-			}
-			 .comment {
-				 margin-top: 0.2em;
-			}
-			/*this can be adjuted to preference. 840px looks nice though.*/
-			 .comment p {
-				 max-width: 840px;
+				 margin-top: 0.5rem !important;
 			}
 			/*allow top-level comment box to be resized*/
-			 .col-sm-12 > textarea {
+			 div > textarea {
 				 resize: both !important;
 			}
-			/*allow comment reply box to be resized*/
-			 .comment textarea {
-				 max-width: 840px;
-				 resize: both !important;
-			}
-			 .comment .details > div > div > .md-div > p {
-				 font-size: 0.9rem;
-			}
-			/* keep tools with comment box*/
-			 .flex-grow-1 {
-				 flex-grow: 0 !important;
-			}
-			 .form-row {
-				 width: 50%;
-			}
-			/* collapse comment chain on the very left - credit to ShittyKopper*/
-			 .comment .d-flex button[aria-label="Collapse"], .comment .d-flex button[aria-label="Expand"] {
-				 order: -1;
+      .mb-3.row {
+        max-width: 940px;
+      }
+      .ms-1 {
+        margin-left: 1em !important;
+      }
+			/***********/
+			/* sidebar */
+			/***********/
+			 #sidebarContainer {
+  				 padding-right: 1em;
 			}
 			/******************************/
 			/* entire page display tweaks */
@@ -228,6 +241,13 @@
 			 #app > .mt-4 > .container-lg > .row > .col-md-4 {
 				 width: 450px;
 			}
+	hr {
+		display: none;
+	}
+	/* highlight number of new comments */
+	.text-muted.fst-italic {
+		color: var(--bs-orange) !important;
+	}
 			/* Fix user drop down menu position*/
 			 .dropdown-content {
 				 right: 0px;
@@ -338,12 +358,14 @@
 			}
 		});
 		/*Fix navbar craziness involving the search button*/
+    /*
 		var nav_list = document.querySelectorAll(".navbar-nav");
-		
+
 		[...nav_list].forEach(container => {
 			if (!container.className.includes("my-2") && !container.className.includes("ml-auto") && !container.className.includes("ml-1")) {
 				container.className += " " + "my-2";
 			}
-		});		
+		});
+    */
 	}
 })();
