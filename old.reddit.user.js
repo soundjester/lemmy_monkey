@@ -164,10 +164,10 @@
 				 padding-top: 0.5rem !important;
 			}
 			/*increase child comment indentation*/
-			 .comments:not(:first-child) {
+			 .comment.ml-1 {
 				 margin-left: 1em !important;
 			}
-			 .comment.ml-1 {
+			 .comment {
 				 margin-top: 0.2em;
 			}
 			/*this can be adjuted to preference. 840px looks nice though.*/
