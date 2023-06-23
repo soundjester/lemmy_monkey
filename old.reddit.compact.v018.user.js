@@ -241,9 +241,13 @@
 			 #app > .mt-4 > .container-lg > .row > .col-md-4 {
 				 width: 450px;
 			}
-      hr {
-        display: none;
-      }
+	hr {
+		display: none;
+	}
+	/* highlight number of new comments */
+	.text-muted.fst-italic {
+		color: var(--bs-orange) !important;
+	}      
 			/* Fix user drop down menu position*/
 			 .dropdown-content {
 				 right: 0px;
