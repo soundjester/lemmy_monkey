@@ -1,13 +1,14 @@
 # lemmy_monkey
-*monkey scripts for Lemmy
+A *monkey script to restyle Lemmy to a more old.reddit look
 
-This is a small respository for Grease/Tamper/Violent (etc.) monkey scripts.
-
-There are currently two versions:
-- old.reddit.user.js -- this is a fairly loose interpretation and is represented in the screenshot below.
-- old.reddit.compact.user.js -- a much (MUCH) tighter implementation of the above.
+This script should work with Grease/Tamper/Violent (etc.) monkey userscript managers.
 
 This script is (or should be) theme agnostic.  It has been tested with darlkly, darkly-red, litely, and litely-red.
+
+## Script Options
+This script allows you to adjust thumbnail sizes to your preference.
+At the top of the script is a variable which you may change (if you desire).
+The current script defaults to a compact (small) thumbnail size of 70 x 70px.
 
 ## Installation
 
