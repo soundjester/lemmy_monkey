@@ -25,6 +25,31 @@
 	} catch (_er) {
 		isLemmy = false;
 	}
+	function AppendCommentCountText(container) {
+		var svgElem = container.querySelectorAll("svg")[0].outerHTML;
+		var numComms = container.title;
+		var spanElem = container.querySelectorAll("span");
+		var spanElemHTML = "";
+		if(spanElem[0]){
+			spanElemHTML = " " + spanElem[0].outerHTML
+		}
+		container.innerHTML = svgElem + numComms + spanElemHTML;
+	}
+
+	function ApplyCommentCountText(element) {
+		const observer = new MutationObserver(function(mutationsList) {
+			for (let mutation of mutationsList) {
+				if (mutation.type === 'childList') {
+					for (let addedNode of mutation.addedNodes) {
+						var comm_count = addedNode.querySelectorAll(".btn.btn-link.btn-sm.text-muted.ps-0");
+						comm_count.forEach(AppendCommentCountText);
+					}
+				}
+			}
+		});
+
+		observer.observe(element, { childList: true, subtree: true });
+	}	
 	// Lemmy to old.Reddit style reformats (portable custom stylesheet)
 	if (isLemmy) {
 		const css = `
@@ -270,10 +295,6 @@
 				 padding: 0.1rem;
 				 vertical-align: middle;
 			}
-			/* some instances include a tag line*/
-			 #tagline {
-				 margin-left: 1em;
-			}
 			/**********************************************/
 			/** Specific screen size (mobile) adjustments */
 			/**********************************************/
@@ -346,30 +367,11 @@
 		styleTag.appendChild(document.createTextNode(css));
 		document.head.appendChild(styleTag);
 
-		/*move tagline element to be between navbar and content nav buttons*/
-		var div_list = document.querySelectorAll("div#app");
-		var div_array = [...div_list];
-
-		div_array.forEach(container => {
-			var firstTargDiv = container.querySelector("div#tagline");
-			var secondTargDiv = container.querySelector(".mt-4.p-0.fl-1");
-			//-- Swap last to first.
-			if(firstTargDiv !== null && secondTargDiv !== null){
-				container.insertBefore(firstTargDiv, secondTargDiv);
-			}
-		});
 		/*append comment icon with "comment" text*/
 		var comm_count = document.querySelectorAll(".btn.btn-link.btn-sm.text-muted.ps-0");
+		comm_count.forEach(AppendCommentCountText);
 
-		[...comm_count].forEach(container => {
-			var svgElem = container.querySelectorAll("svg")[0].outerHTML;
-			var numComms = container.title;
-			var spanElem = container.querySelectorAll("span");
-			var spanElemHTML = "";
-			if(spanElem[0]){
-				spanElemHTML = " " + spanElem[0].outerHTML
-			}
-			container.innerHTML = svgElem + numComms + spanElemHTML;
-		});
+		// Apply AppendCommentCountText to dynamically loaded elements
+		ApplyCommentCountText(document.documentElement);
 	}
 })();
