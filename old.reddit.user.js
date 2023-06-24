@@ -25,6 +25,7 @@
 	} catch (_er) {
 		isLemmy = false;
 	}
+
 	function AppendCommentCountText(container) {
 		var svgElem = container.querySelectorAll("svg")[0].outerHTML;
 		var numComms = container.title;
@@ -49,7 +50,32 @@
 		});
 
 		observer.observe(element, { childList: true, subtree: true });
-	}	
+	}
+
+	function AppendPostURL(container) {
+		var tld_link = container.querySelectorAll(".d-flex.text-muted.align-items-center.gap-1.small.m-0")[0];
+		var post_details = container.querySelectorAll("span.small")[0];
+		if (tld_link) {
+			var post_detail = tld_link.nextSibling.innerText;
+			post_details.innerHTML += " • " + tld_link.innerHTML
+		}
+	}
+
+	function ApplyAppendPostURL(element) {
+		const observer = new MutationObserver(function(mutationsList) {
+			for (let mutation of mutationsList) {
+				if (mutation.type === 'childList') {
+					for (let addedNode of mutation.addedNodes) {
+						var comm_count = addedNode.querySelectorAll("article > .col-12.col-sm-9 > .row > .col-12");
+						comm_count.forEach(AppendPostURL);
+					}
+				}
+			}
+		});
+
+		observer.observe(element, { childList: true, subtree: true });
+	}
+
 	// Lemmy to old.Reddit style reformats (portable custom stylesheet)
 	if (isLemmy) {
 		const css = `
@@ -366,12 +392,19 @@
 		const styleTag = document.createElement('style');
 		styleTag.appendChild(document.createTextNode(css));
 		document.head.appendChild(styleTag);
-
+		
 		/*append comment icon with "comment" text*/
 		var comm_count = document.querySelectorAll(".btn.btn-link.btn-sm.text-muted.ps-0");
 		comm_count.forEach(AppendCommentCountText);
 
-		// Apply AppendCommentCountText to dynamically loaded elements
+		/*Apply AppendCommentCountText to dynamically loaded elements */
 		ApplyCommentCountText(document.documentElement);
+
+		/*append post TLD link to post detail area*/
+		var post_info = document.querySelectorAll("article > .col-12.col-sm-9 > .row > .col-12");
+		post_info.forEach(AppendPostURL);
+
+		/* Apply AppendPostURL to dynamically loaded elements */
+		ApplyAppendPostURL(document.documentElement);
 	}
 })();
