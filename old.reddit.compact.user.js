@@ -16,7 +16,7 @@
 	/* 70px - compact default          */
 	/* 100px - large thumbnail default */
 	/***********************************/
- 	var thumbnailSize = "70";
+ 	var thumbnailSize = 70;
 	/***********************************/
 	//Thank you God!
 	var isLemmy;
@@ -366,7 +366,7 @@
 			}
 		});
 		/*Fix navbar craziness involving the search button*/
-    /*
+    		/*
 		var nav_list = document.querySelectorAll(".navbar-nav");
 
 		[...nav_list].forEach(container => {
@@ -374,6 +374,6 @@
 				container.className += " " + "my-2";
 			}
 		});
-    */
+    		*/
 	}
 })();
