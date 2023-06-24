@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         Compact Lemmy to old.Reddit Re-format (Lemmy v0.18)
 // @namespace    https://github.com/soundjester/lemmy_monkey
-// @version      2.1
 // @description  Reformat widescreen desktop to look more like Reddit
+// @version      2.1
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
 // @match        https://*/*
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
 // @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
-// @run-at       document-load
+// @run-at       document-idle
 // ==/UserScript==
 (function() {
 	'use strict';
