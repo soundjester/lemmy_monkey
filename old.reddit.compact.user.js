@@ -330,8 +330,12 @@
 				}
 			}
 			 @media screen and (max-width: 575px) {
-				 .col-12.col-md-8 {
-					 padding-right: 0em !important;
+				 #tagline {
+					 padding-right: 1em;
+				}
+				 .col-12 {
+					 flex: 0 0 100% !important;
+					 max-width: 100%;
 				}
 				 .col-8 {
 					 flex: 0 0 75% !important;
