@@ -358,15 +358,18 @@
 				container.insertBefore(firstTargDiv, secondTargDiv);
 			}
 		});
-		/*Fix navbar craziness involving the search button*/
-    		/*
-		var nav_list = document.querySelectorAll(".navbar-nav");
+		/*append comment icon with "comment" text*/
+		var comm_count = document.querySelectorAll(".btn.btn-link.btn-sm.text-muted.ps-0");
 
-		[...nav_list].forEach(container => {
-			if (!container.className.includes("my-2") && !container.className.includes("ml-auto") && !container.className.includes("ml-1")) {
-				container.className += " " + "my-2";
+		[...comm_count].forEach(container => {
+			var svgElem = container.querySelectorAll("svg")[0].outerHTML;
+			var numComms = container.title;
+			var spanElem = container.querySelectorAll("span");
+			var spanElemHTML = "";
+			if(spanElem[0]){
+				spanElemHTML = spanElem[0].outerHTML
 			}
+			container.innerHTML = svgElem + numComms + spanElemHTML;
 		});
-    		*/
 	}
 })();
