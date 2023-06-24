@@ -25,6 +25,57 @@
 	} catch (_er) {
 		isLemmy = false;
 	}
+
+	function AppendCommentCountText(container) {
+		var svgElem = container.querySelectorAll("svg")[0].outerHTML;
+		var numComms = container.title;
+		var spanElem = container.querySelectorAll("span");
+		var spanElemHTML = "";
+		if(spanElem[0]){
+			spanElemHTML = " " + spanElem[0].outerHTML
+		}
+		container.innerHTML = svgElem + numComms + spanElemHTML;
+	}
+
+	function ApplyCommentCountText(element) {
+		const observer = new MutationObserver(function(mutationsList) {
+			for (let mutation of mutationsList) {
+				if (mutation.type === 'childList') {
+					for (let addedNode of mutation.addedNodes) {
+						var comm_count = addedNode.querySelectorAll(".btn.btn-link.btn-sm.text-muted.ps-0");
+						comm_count.forEach(AppendCommentCountText);
+					}
+				}
+			}
+		});
+
+		observer.observe(element, { childList: true, subtree: true });
+	}
+
+	function AppendPostURL(container) {
+		var tld_link = container.querySelectorAll(".d-flex.text-muted.align-items-center.gap-1.small.m-0")[0];
+		var post_details = container.querySelectorAll("span.small")[0];
+		if (tld_link) {
+			var post_detail = tld_link.nextSibling.innerText;
+			post_details.innerHTML += " • " + tld_link.innerHTML
+		}
+	}
+
+	function ApplyAppendPostURL(element) {
+		const observer = new MutationObserver(function(mutationsList) {
+			for (let mutation of mutationsList) {
+				if (mutation.type === 'childList') {
+					for (let addedNode of mutation.addedNodes) {
+						var comm_count = addedNode.querySelectorAll("article > .col-12.col-sm-9 > .row > .col-12");
+						comm_count.forEach(AppendPostURL);
+					}
+				}
+			}
+		});
+
+		observer.observe(element, { childList: true, subtree: true });
+	}
+
 	// Lemmy to old.Reddit style reformats (portable custom stylesheet)
 	if (isLemmy) {
 		const css = `
@@ -45,6 +96,9 @@
 			 .container, .container-lg, .container-md, .container-sm, .container-xl {
 			     max-width: 100% !important;
 			}
+			 .home {
+			     padding-left: 1em !important;
+			}   
 			/*sidebar width*/
 			 .col-md-4 {
 			     flex: 0 0 20% !important;
@@ -270,10 +324,6 @@
 				 padding: 0.1rem;
 				 vertical-align: middle;
 			}
-			/* some instances include a tag line*/
-			 #tagline {
-				 margin-left: 1em;
-			}
 			/**********************************************/
 			/** Specific screen size (mobile) adjustments */
 			/**********************************************/
@@ -345,28 +395,19 @@
 		const styleTag = document.createElement('style');
 		styleTag.appendChild(document.createTextNode(css));
 		document.head.appendChild(styleTag);
+		
+		/*append comment icon with "comment" text*/
+		var comm_count = document.querySelectorAll(".btn.btn-link.btn-sm.text-muted.ps-0");
+		comm_count.forEach(AppendCommentCountText);
 
-		/*move tagline element to be between navbar and content nav buttons*/
-		var div_list = document.querySelectorAll("div#app");
-		var div_array = [...div_list];
+		/*Apply AppendCommentCountText to dynamically loaded elements */
+		ApplyCommentCountText(document.documentElement);
 
-		div_array.forEach(container => {
-			var firstTargDiv = container.querySelector("div#tagline");
-			var secondTargDiv = container.querySelector(".mt-4.p-0.fl-1");
-			//-- Swap last to first.
-			if(firstTargDiv !== null && secondTargDiv !== null){
-				container.insertBefore(firstTargDiv, secondTargDiv);
-			}
-		});
-		/*Fix navbar craziness involving the search button*/
-    		/*
-		var nav_list = document.querySelectorAll(".navbar-nav");
+		/*append post TLD link to post detail area*/
+		var post_info = document.querySelectorAll("article > .col-12.col-sm-9 > .row > .col-12");
+		post_info.forEach(AppendPostURL);
 
-		[...nav_list].forEach(container => {
-			if (!container.className.includes("my-2") && !container.className.includes("ml-auto") && !container.className.includes("ml-1")) {
-				container.className += " " + "my-2";
-			}
-		});
-    		*/
+		/* Apply AppendPostURL to dynamically loaded elements */
+		ApplyAppendPostURL(document.documentElement);
 	}
 })();
