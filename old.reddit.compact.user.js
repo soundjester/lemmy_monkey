@@ -2,7 +2,7 @@
 // @name         Compact Lemmy to old.Reddit Re-format (Lemmy v0.18)
 // @namespace    https://github.com/soundjester/lemmy_monkey
 // @description  Reformat widescreen desktop to look more like Reddit
-// @version      2.1
+// @version      2.2
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
 // @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
