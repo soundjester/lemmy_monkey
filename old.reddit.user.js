@@ -7,7 +7,7 @@
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
 // @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
 // @match        https://*/*
-// @run-at       document-load
+// @run-at       document-idle
 // ==/UserScript==
 (function() {
 	'use strict';
