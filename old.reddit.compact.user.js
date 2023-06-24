@@ -96,6 +96,9 @@
 			 .container, .container-lg, .container-md, .container-sm, .container-xl {
 				 max-width: 100% !important;
 			}
+			.home {
+				padding-left: 1em !important;
+			}   
 			/*sidebar width*/
 			 .col-md-4 {
 				 flex: 0 0 20% !important;
