@@ -208,6 +208,10 @@
 			 .ms-1 {
 				 margin-left: 1em !important;
 			}
+			/*restrict post and comment form to comment width*/
+			#app  .post-listing > .card, #app form[id*="comment-form"] {
+				width: 940px;
+			}
 			/***********/
 			/* sidebar */
 			/***********/
