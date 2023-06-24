@@ -365,7 +365,7 @@
 			var spanElem = container.querySelectorAll("span");
 			var spanElemHTML = "";
 			if(spanElem[0]){
-				spanElemHTML = spanElem[0].outerHTML
+				spanElemHTML = " " + spanElem[0].outerHTML
 			}
 			container.innerHTML = svgElem + numComms + spanElemHTML;
 		});
