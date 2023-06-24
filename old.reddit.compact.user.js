@@ -293,41 +293,32 @@
 				}
 			}
 			 @media screen and (max-width: 1199px) and (min-width: 992px) {
+			        .col-12 {
+				          flex: 0 0 100% !important;
+				          max-width: 75%;
+			        }
 				 .col-md-4 {
-					 flex: 0 0 33.3333% !important;
-					 max-width: 33.3333%;
+					 flex: 0 0 25% !important;
+					 max-width: 25%;
 				}
-				 .col-md-8 {
-					 flex: 0 0 66.6666% !important;
-					 max-width: 66.6666%;
-				}
-				 .navbar {
-					 padding-right: 0em !important;
-				}
-			}
-			 @media screen and (max-width: 1199px) and (min-width: 576px) {
-				 .col-1 {
-					 flex: 0 0 6% !important;
-					 max-width: 6% !important;
-				}
-				 .col-12.col-sm-9 {
-					 padding-left: 1em !important;
-				}
-			}
-			 @media screen and (max-width: 940px) and (min-width: 576px) {
-				 .col-md-8 {
-					 flex: 0 0 100% !important;
-					 max-width: 100%;
-				}
+			        .vote-bar {
+				          flex: 0 0 8% !important;
+				          max-width: 8% !important;
+			        }
 			}
 			 @media screen and (max-width: 768px) and (min-width: 576px) {
-				 .pl-1, .px-1 {
-					 padding-left: unset !important;
-				}
-				 .pl-3, .px-3 {
-					 padding-left: 1rem !important;
-					 padding-right: 1rem !important;
-				}
+			        .col-12 {
+				          flex: 0 0 100% !important;
+				          max-width: 100%;
+			        }
+			        .col-sm-9 {
+				          flex: 0 0 72% !important;
+				          max-width: 72%;
+			        }
+			        .vote-bar {
+				          flex: 0 0 8% !important;
+				          max-width: 8% !important;
+			        }
 			}
 			 @media screen and (max-width: 575px) {
 				 #tagline {
