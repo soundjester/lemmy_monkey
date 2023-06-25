@@ -42,12 +42,13 @@
 			for (let mutation of mutationsList) {
 				if (mutation.type === 'childList') {
 					for (let addedNode of mutation.addedNodes) {
-				            try {
-				              var comm_count = addedNode.querySelectorAll(".btn.btn-link.btn-sm.text-muted.ps-0");
-				              comm_count.forEach(AppendCommentCountText);
-				            } catch (_er) {
-				              console.log(_er)
-				            }
+						try {
+							var comm_count = addedNode.querySelectorAll(".btn.btn-link.btn-sm.text-muted.ps-0");
+							comm_count.forEach(AppendCommentCountText);
+						} catch (_er) {
+							console.log(_er);
+							return;
+						}
 					}
 				}
 			}
@@ -70,12 +71,13 @@
 			for (let mutation of mutationsList) {
 				if (mutation.type === 'childList') {
 					for (let addedNode of mutation.addedNodes) {
-				            try {
-				              var comm_count = addedNode.querySelectorAll("article > .col-12.col-sm-9 > .row > .col-12");
-				              comm_count.forEach(AppendPostURL);
-				            } catch (_er) {
-				              console.log(_er)
-				            }
+						try {
+							var comm_count = addedNode.querySelectorAll("article > .col-12.col-sm-9 > .row > .col-12");
+							comm_count.forEach(AppendPostURL);
+						} catch (_er) {
+							console.log(_er);
+							return;
+						}
 					}
 				}
 			}
