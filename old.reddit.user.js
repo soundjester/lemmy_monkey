@@ -4,8 +4,8 @@
 // @description  Reformat Lemmy instances to the style of old.reddit - compact view
 // @version      2.3
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822, Jakylla
-// @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
-// @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
+// @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
+// @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
 // @match        https://*/*
 // @run-at       document-idle
 // ==/UserScript==
