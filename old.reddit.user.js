@@ -2,8 +2,8 @@
 // @name         Lemmy to Old.Reddit Re-format (Lv0.18)
 // @namespace    https://github.com/soundjester/lemmy_monkey/
 // @description  Reformat Lemmy instances to the style of old.reddit - compact view
-// @version      2.2
-// @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
+// @version      2.3
+// @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822, Jakylla
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
 // @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
 // @match        https://*/*
@@ -42,8 +42,13 @@
 			for (let mutation of mutationsList) {
 				if (mutation.type === 'childList') {
 					for (let addedNode of mutation.addedNodes) {
-						var comm_count = addedNode.querySelectorAll(".btn.btn-link.btn-sm.text-muted.ps-0");
-						comm_count.forEach(AppendCommentCountText);
+						try {
+							var comm_count = addedNode.querySelectorAll(".btn.btn-link.btn-sm.text-muted.ps-0");
+							comm_count.forEach(AppendCommentCountText);
+						} catch (_er) {
+							console.log(_er);
+							return;
+						}
 					}
 				}
 			}
@@ -66,8 +71,13 @@
 			for (let mutation of mutationsList) {
 				if (mutation.type === 'childList') {
 					for (let addedNode of mutation.addedNodes) {
-						var comm_count = addedNode.querySelectorAll("article > .col-12.col-sm-9 > .row > .col-12");
-						comm_count.forEach(AppendPostURL);
+				            	try {
+							var comm_count = addedNode.querySelectorAll("article > .col-12.col-sm-9 > .row > .col-12");
+							comm_count.forEach(AppendPostURL);
+						} catch (_er) {
+							console.log(_er);
+							return;
+						}
 					}
 				}
 			}
@@ -178,6 +188,8 @@
 				 max-height: `+thumbnailSize+`px !important;
 				 min-width: `+thumbnailSize+`px !important;
 				 max-width: `+thumbnailSize+`px !important;
+			         background-color: #333;
+				 object-fit: scale-down; /* instead of "cover" */
 			}
 			/*this is needed for videos/gifs*/
 			 .embed-responsive {
@@ -186,6 +198,11 @@
 				 min-width: `+thumbnailSize+`px !important;
 				 max-width: `+thumbnailSize+`px !important;
 			}
+			/*apply specific styling to text posts*/
+			.post-media a[href^="/post/"] .thumbnail {
+				border: 1px solid #333;
+				background-color: unset !important;
+			} 
 			/*******************/
 			/* main page posts */
 			/*******************/
