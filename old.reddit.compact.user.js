@@ -2,8 +2,8 @@
 // @name         Compact Lemmy to old.Reddit Re-format (Lemmy v0.18)
 // @namespace    https://github.com/soundjester/lemmy_monkey
 // @description  Reformat widescreen desktop to look more like Reddit
-// @version      2.1
-// @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822
+// @version      2.3
+// @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822, Jakylla
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
 // @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
 // @match        https://*/*
@@ -187,6 +187,8 @@
 				 max-height: `+thumbnailSize+`px !important;
 				 min-width: `+thumbnailSize+`px !important;
 				 max-width: `+thumbnailSize+`px !important;
+			         background-color: #333;
+				 object-fit: scale-down; /* instead of "cover" */
 			}
 			/*this is needed for videos/gifs*/
 			 .embed-responsive {
@@ -195,6 +197,11 @@
 				 min-width: `+thumbnailSize+`px !important;
 				 max-width: `+thumbnailSize+`px !important;
 			}
+			/*apply specific styling to text posts*/
+			.post-media a[href^="/post/"] .thumbnail {
+				border: 1px solid #333;
+				background-color: unset !important;
+			}   
 			/*******************/
 			/* main page posts */
 			/*******************/
