@@ -2,7 +2,7 @@
 // @name         Lemmy to Old.Reddit Re-format (Lv0.18)
 // @namespace    https://github.com/soundjester/lemmy_monkey/
 // @description  Reformat Lemmy instances to the style of old.reddit - compact view
-// @version      2.3.1
+// @version      2.4
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822, Jakylla
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
 // @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
@@ -329,6 +329,9 @@
 			 .dropdown-content {
 				 right: 0px;
 			}
+			.dropdown-menu.show {
+				width: 100%;
+			}     
 			/* Profile and Community Banner size */
 			 .position-relative.mb-2 {
 				 max-width: 730px;
