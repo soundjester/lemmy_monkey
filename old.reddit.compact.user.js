@@ -17,7 +17,7 @@
 	/* 100px - large thumbnail default */
 	/***********************************/
  	var thumbnailSize = 70;
- 	var readingWidth = 940; /*controls the width of comments and test posts on individual post pages - default=940*/	
+ 	var readingWidth = 940; /*controls the width of comments and text posts on individual post pages - default=940*/	
 	/***********************************/
 	//Thank you God!
 	var isLemmy;
