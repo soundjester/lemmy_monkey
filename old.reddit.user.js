@@ -17,6 +17,7 @@
 	/* 100px - large thumbnail default */
 	/***********************************/
  	var thumbnailSize = 100;
+ 	var readingWidth = 940; /*controls the width of comments and test posts on individual post pages - default=940*/		
 	/***********************************/
 	//Thank you God!
 	var isLemmy;
@@ -260,14 +261,12 @@
 			/* comments */
 			/************/
 			/* restrict post and comment width - adjust to preference */
-			 #postContent {
-				 max-width: 940px;
-			}
-			 .md-div {
-				 max-width: 940px;
+			/* may use li[role="comment"] instead of .md-div - this fully restricts all comment elements (eg. divider lines_ */
+			 #postContent, .md-div, .alert-warning  {
+				 max-width: `+readingWidth+`px;
 			}
 			 .mb-3.row {
-				 max-width: 965px;
+				 max-width: `+(readingWidth+25)+`px; /*top-comment textarea needs extra width*/
 			}
 			/*top comment doesn't need to hug the comment sort buttons.*/
 			 .comments:first-child {
