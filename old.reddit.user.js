@@ -132,15 +132,6 @@
 			 .col-8 {
 			     max-width: 100% !important;
 			}
-			/* specific column combos that need padding adjustment*/
-			/* .col-12.col-md-8 {
-			     padding-left: unset !important;
-			}
-			 */
-			/* .col-12.col-sm-9 {
-			     padding-left: unset !important;
-			}
-			 */
 			/* navbar padding*/
 			 .navbar {
 			    /*padding-left: 0 !important;
@@ -220,29 +211,21 @@
 			*/
 			/*can be adjusted smaller, but beyond .25 is gets too tight and individual post spacing starts to appear overlapping*/
 			 .post-listing {
-			     margin: 0.25rem 0 !important;
-			     padding: 0.25rem 0 !important;
+				 margin: 0.25rem 0 !important;
+				 padding: 0.25rem 0 !important;
 			}
 			 .post-listing picture img.rounded-circle {
-			     width: 1.25rem;
-			     height: 1.25rem;
+				 width: 1.25rem;
+				 height: 1.25rem;
 			}
-			 p.d-flex.text-muted.align-items-center.gap-1.small.m-0 {
-			     display: none !important;
-			}
-			/*thumbnail width control (keep it square, dang it!)*/
-			 .post-listing .d-none .row .col-sm-2 {
-			     max-width: 100px;
-			}
-			 .post-listing .d-none .row .col-sm-9 {
-			     display: flex;
-			     align-items: unset !important;
+			/*hide link TLD until it is moved back to the old spot*/
+			 .small.m-0 {
+				 display: none !important;
 			}
 			/*comment number and fediverse/lemmy links*/
-			/* .ps-0 {
-			     font-size: 0.75rem !important;
+			 .ps-0 {
+				 font-size: 0.75rem !important;
 			}
-			*/
 			/*the below .btn is deprecated as .py-0 (above) provides more consistent spacing;
 			 however, some may prefer the look of smaller text on buttons*/
 			/*.btn {
