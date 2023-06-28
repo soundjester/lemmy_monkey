@@ -132,15 +132,6 @@
 			 .col-8 {
 				 max-width: 100% !important;
 			}
-			/* specific column combos that need padding adjustment*/
-			/* .col-12.col-md-8 {
-				 padding-left: unset !important;
-			}
-			 */
-			/* .col-12.col-sm-9 {
-				 padding-left: unset !important;
-			}
-			 */
 			/* navbar padding*/
 			 .navbar {
 				/*padding-left: 0 !important;
@@ -225,16 +216,8 @@
 				 height: 1.25rem;
 			}
 			/*hide link TLD until it is moved back to the old spot*/
-			 p.d-flex.text-muted.align-items-center.gap-1.small.m-0 {
+			 .small.m-0 {
 				 display: none !important;
-			}
-			/*thumbnail width control (keep it square, dang it!)*/
-			 .post-listing .d-none .row .col-sm-2 {
-				 max-width: 100px;
-			}
-			 .post-listing .d-none .row .col-sm-9 {
-				 display: flex;
-				 align-items: unset !important;
 			}
 			/*comment number and fediverse/lemmy links*/
 			 .ps-0 {
@@ -412,6 +395,7 @@
 		const styleTag = document.createElement('style');
 		styleTag.appendChild(document.createTextNode(css));
 		document.head.appendChild(styleTag);
+
 		/*append comment icon with "comment" text*/
 		var comm_count = document.querySelectorAll(".btn.btn-link.btn-sm.text-muted.ps-0");
 		comm_count.forEach(AppendCommentCountText);
