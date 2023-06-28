@@ -219,6 +219,10 @@
 			 .small.m-0 {
 				 display: none !important;
 			}
+			/*thumbnail width control (keep it square, dang it!)*/
+			 .post-listing .d-none .row .col-sm-2 {
+				 max-width: 100px;
+			}   
 			/*comment number and fediverse/lemmy links*/
 			 .ps-0 {
 				 font-size: 0.75rem !important;
