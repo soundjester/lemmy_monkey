@@ -2,7 +2,7 @@
 // @name         Lemmy to Old.Reddit Re-format (Lv0.18)
 // @namespace    https://github.com/soundjester/lemmy_monkey/
 // @description  Reformat Lemmy instances to the style of old.reddit - compact view
-// @version      2.4
+// @version      2.5
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822, Jakylla
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
 // @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
