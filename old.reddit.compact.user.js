@@ -106,12 +106,12 @@
 			/***************/
 			/* main page   */
 			/***************/
-      .home, .post {
-          max-width: 100%;
-      }
-      .vote-bar {
-          min-width: 2.5em;
-      }
+			.home, .post {
+			  	max-width: 100%;
+			}
+			.vote-bar {
+			  	min-width: 2.5em;
+			}
 			/* post title font size*/
 			 .h5, h5 {
 				 `+postTitleFont+`
@@ -120,9 +120,9 @@
 			 hr {
 				 display: none;
 			}
-      #navbar {
-         min-width: 100%;
-      }
+			#navbar {
+			 	min-width: 100%;
+			}
 			/*hide link TLD until it is moved back to the old spot*/
 			 .small.m-0 {
 				 display: none !important;
@@ -168,9 +168,9 @@
 				 max-width: 4% !important;
 				 margin-top: `+voteBarTopMargin+` !important;
 			}
-      .small {
-         `+smallTextFont+`
-      }
+			.small {
+			 	`+smallTextFont+`
+			}
 			/******************/
 			/* thumbnail area */
 			/******************/
@@ -200,9 +200,9 @@
 				border: 1px solid #333;
 				background-color: unset !important;
 			}
-      .px-0 {
-        max-height: `+thumbnailSize+`px !important;
-      }
+			.px-0 {
+				max-height: `+thumbnailSize+`px !important;
+			}
 			/************/
 			/* comments */
 			/************/
