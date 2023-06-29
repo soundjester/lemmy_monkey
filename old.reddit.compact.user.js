@@ -16,7 +16,7 @@
 	/* 70px - compact default          */
 	/* 100px - large thumbnail default */
 	/***********************************/
- 	var thumbnailSize = 70;
+ 	var thumbnailSize = 100;
  	var readingWidth = 940; /*controls the width of comments and text posts on individual post pages - default=940*/
 	/***********************************/
 	//Thank you God!
@@ -26,6 +26,19 @@
 	} catch (_er) {
 		isLemmy = false;
 	}
+
+  /*modify the presentation of fonts based on thumbnail size - larger thumbnails make resized test look a little silly...*/
+  if(thumbnailSize<100){
+    var postTitleFont = "font-size: 1rem !important;";
+    var voteBarFont = "font-size: 0.95em !important;";
+    var voteBarTopMargin = "unset";
+    var smallTextFont = "";
+  } else {
+    var postTitleFont = "";
+    var voteBarFont = "";
+    var voteBarTopMargin = "1em";
+    var smallTextFont = "font-size: unset !important;";
+  }
 
 	function AppendCommentCountText(container) {
 		var svgElem = container.querySelectorAll("svg")[0].outerHTML;
@@ -101,7 +114,7 @@
       }
 			/* post title font size*/
 			 .h5, h5 {
-				 font-size: 1rem !important;
+				 `+postTitleFont+`
 				 margin-bottom: 0.1rem !important;
 			}
 			 hr {
@@ -143,7 +156,6 @@
 				 padding-bottom: 0;
 			}
 			 .text-body.mt-2.d-block{
-				 font-size: 0.8rem;
 				 display: none !important;
 			}
 			/***************/
@@ -151,11 +163,14 @@
 			/***************/
 			/*can be modified as you like*/
 			 .vote-bar {
-				 font-size: 0.95em !important;
+				 `+voteBarFont+`
 				 flex: 0 0 4% !important;
 				 max-width: 4% !important;
-				 margin-top:unset !important;
+				 margin-top: `+voteBarTopMargin+` !important;
 			}
+      .small {
+         `+smallTextFont+`
+      }
 			/******************/
 			/* thumbnail area */
 			/******************/
@@ -170,7 +185,7 @@
 				 max-height: `+thumbnailSize+`px !important;
 				 min-width: `+thumbnailSize+`px !important;
 				 max-width: `+thumbnailSize+`px !important;
-			         background-color: #333;
+			   background-color: #333;
 				 object-fit: scale-down; /* instead of "cover" */
 			}
 			/*this is needed for videos/gifs*/
