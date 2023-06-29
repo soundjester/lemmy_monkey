@@ -15,11 +15,10 @@ The current script defaults to a compact (small) thumbnail size of 70 x 70px.
 ### Option A - Greasyfork
 
 1. Compact version (old.reddit.compact.user.js) - https://greasyfork.org/en/scripts/469093-compact-lemmy-to-old-reddit-re-format-observer
-2. Larger thumbnails (old.reddit.user.js) - https://greasyfork.org/en/scripts/469094-lemmy-to-old-reddit-re-format-observer
 
 ### Option B - Direct from github
 
-1. Click your desired script from the shared code
+1. Click script code
 2. Click the "Raw" button at on the top right of the script header area
 3. Proceed according to the instructions for your userscript manager
 
