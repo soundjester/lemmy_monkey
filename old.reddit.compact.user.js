@@ -16,7 +16,7 @@
 	/* 70px - compact default          */
 	/* 100px - large thumbnail default */
 	/***********************************/
- 	var thumbnailSize = 100;
+ 	var thumbnailSize = 70;
  	var readingWidth = 940; /*controls the width of comments and text posts on individual post pages - default=940*/
 	/***********************************/
 	//Thank you God!
@@ -32,12 +32,16 @@
     var postTitleFont = "font-size: 1rem !important;";
     var voteBarFont = "font-size: 0.95em !important;";
     var voteBarTopMargin = "unset";
-    var smallTextFont = "";
+    var smallTextFont = "80%";
+    var postPFPSize = "20px";
+    var postFedLinks = "font-size: 0.75rem !important;";
   } else {
     var postTitleFont = "";
     var voteBarFont = "";
     var voteBarTopMargin = "1em";
-    var smallTextFont = "font-size: unset !important;";
+    var smallTextFont = "unset !important;";
+    var postPFPSize = "";
+    var postFedLinks = "";
   }
 
 	function AppendCommentCountText(container) {
@@ -107,25 +111,46 @@
 			/* main page   */
 			/***************/
 			.home, .post {
-			  	max-width: 100%;
+				max-width: 100%;
+			}
+			#navbar {
+				min-width: 100%;
 			}
 			.vote-bar {
-			  	min-width: 2.5em;
+				min-width: 2.5em;
 			}
+			 hr {
+				 display: none;
+			}
+			/*sidebar width*/
+			 .col-md-4 {
+				 flex: 0 0 20% !important;
+				 width: 20%;
+			}
+			/*main post area (witdh optimized for widescreen)*/
+			 .col-md-8 {
+				 flex: 0 0 80% !important;
+				 width: 80%;
+			}
+			/***************************/
+			/* main page post listing  */
+			/***************************/
 			/* post title font size*/
 			 .h5, h5 {
 				 `+postTitleFont+`
 				 margin-bottom: 0.1rem !important;
 			}
-			 hr {
-				 display: none;
-			}
-			#navbar {
-			 	min-width: 100%;
+			/* highlight number of new comments */
+			 .text-muted.fst-italic {
+				 color: var(--bs-orange) !important;
 			}
 			/*hide link TLD until it is moved back to the old spot*/
 			 .small.m-0 {
 				 display: none !important;
+			}
+			/*comment number and fediverse/lemmy links*/
+			 .ps-0 {
+				 `+postFedLinks+`
 			}
 			/* highlight number of new comments */
 			 .text-muted.fst-italic {
@@ -137,10 +162,6 @@
 			}
 			.dropdown-menu.show {
 				width: 100%;
-			}
-			/* Profile and Community Banner size */
-			 .position-relative.mb-2 {
-				 max-width: 730px;
 			}
 			/*table styles - primarily used on the "Communities" page*/
 			 .table-responsive {
@@ -158,6 +179,11 @@
 			 .text-body.mt-2.d-block{
 				 display: none !important;
 			}
+			/* user profile and community icons on posts */
+			.small > a > picture > img {
+				width: `+postPFPSize+`;
+				height: `+postPFPSize+`;
+			}
 			/***************/
 			/* voting area */
 			/***************/
@@ -168,8 +194,9 @@
 				 max-width: 4% !important;
 				 margin-top: `+voteBarTopMargin+` !important;
 			}
-			.small {
-			 	`+smallTextFont+`
+			.small, small {
+				 font-size: `+smallTextFont+`;
+				 font-weight: 400;
 			}
 			/******************/
 			/* thumbnail area */
@@ -206,6 +233,10 @@
 			/************/
 			/* comments */
 			/************/
+			/* Profile and Community Banner size */
+			 .position-relative.mb-2 {
+				 max-width: 730px;
+			}
 			/* restrict post and comment width - adjust to preference */
 			/* may use li[role="comment"] instead of .md-div - this fully restricts all comment elements (eg. divider lines_ */
 			 #postContent, .md-div, .comments, .alert-warning  {
