@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name         Lemmy to Old.Reddit Re-format (Lv0.18)
-// @namespace    https://github.com/soundjester/lemmy_monkey/
-// @description  Reformat Lemmy instances to the style of old.reddit - compact view
-// @version      2.4
+// @name         Compact Lemmy to old.Reddit Re-format (Lemmy v0.18)
+// @namespace    https://github.com/soundjester/lemmy_monkey
+// @description  Reformat widescreen desktop to look more like Reddit
+// @version      2.5
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822, Jakylla
-// @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
-// @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.user.js
+// @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
+// @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
 // @match        https://*/*
 // @run-at       document-idle
 // ==/UserScript==
@@ -17,7 +17,7 @@
 	/* 100px - large thumbnail default */
 	/***********************************/
  	var thumbnailSize = 100;
- 	var readingWidth = 940; /*controls the width of comments and text posts on individual post pages - default=940*/		
+ 	var readingWidth = 940; /*controls the width of comments and text posts on individual post pages - default=940*/
 	/***********************************/
 	//Thank you God!
 	var isLemmy;
@@ -25,6 +25,22 @@
 		isLemmy = document.head.querySelector("[name~=Description][content]").content === "Lemmy";
 	} catch (_er) {
 		isLemmy = false;
+	}
+	/*modify the presentation of fonts based on thumbnail size - larger thumbnails make resized test look a little silly...*/
+	if(thumbnailSize<100){
+		var postTitleFont = "font-size: 1rem !important;";
+		var voteBarFont = "font-size: 0.95em !important;";
+		var voteBarTopMargin = "unset";
+		var smallTextFont = "80%";
+		var postPFPSize = "1.25rem";
+		var postFedLinks = "font-size: 0.75rem !important;";
+	} else {
+		var postTitleFont = "";
+		var voteBarFont = "";
+		var voteBarTopMargin = "unset"
+		var smallTextFont = "unset !important;";
+		var postPFPSize = "";
+		var postFedLinks = "";
 	}
 
 	function AppendCommentCountText(container) {
@@ -36,9 +52,9 @@
 			spanElemHTML = " " + spanElem[0].outerHTML
 		}
 		container.innerHTML = svgElem + numComms + spanElemHTML;
+    		return;
 	}
-
-	function ApplyCommentCountText(element) {
+	async function ApplyCommentCountText(element) {
 		const observer = new MutationObserver(function(mutationsList) {
 			for (let mutation of mutationsList) {
 				if (mutation.type === 'childList') {
@@ -47,7 +63,6 @@
 							var comm_count = addedNode.querySelectorAll(".btn.btn-link.btn-sm.text-muted.ps-0");
 							comm_count.forEach(AppendCommentCountText);
 						} catch (_er) {
-							console.log(_er);
 							return;
 						}
 					}
@@ -65,18 +80,17 @@
 			var post_detail = tld_link.nextSibling.innerText;
 			post_details.innerHTML += " • " + tld_link.innerHTML
 		}
+    		return;
 	}
-
-	function ApplyAppendPostURL(element) {
+	async function ApplyAppendPostURL(element) {
 		const observer = new MutationObserver(function(mutationsList) {
 			for (let mutation of mutationsList) {
 				if (mutation.type === 'childList') {
 					for (let addedNode of mutation.addedNodes) {
-				            	try {
+						try {
 							var comm_count = addedNode.querySelectorAll("article > .col-12.col-sm-9 > .row > .col-12");
 							comm_count.forEach(AppendPostURL);
 						} catch (_er) {
-							console.log(_er);
 							return;
 						}
 					}
@@ -94,86 +108,125 @@
 			/* NSFW automatic un-blur */
 			/**************************/
 			 .img-blur {
-			     filter: none !important;
-			     -webkit-filter: none !important;
-			     -moz-filter: none !important;
-			     -o-filter: none !important;
-			     -ms-filter: none !important;
+				 filter: none !important;
+				 -webkit-filter: none !important;
+				 -moz-filter: none !important;
+				 -o-filter: none !important;
+				 -ms-filter: none !important;
 			}
-			/***************************/
-			/* bootstrap column widths */
-			/***************************/
-			/*main container*/
-			 .container, .container-lg, .container-md, .container-sm, .container-xl {
-			     max-width: 100% !important;
+			/***************/
+			/* main page   */
+			/***************/
+			:root{
+				--bs-body-font-size: 0.9375rem;
 			}
-			 .home {
-			     padding-left: 1em !important;
-			}   
+			.home, .post, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+				max-width: 100% !important;
+			}
+			#navbar {
+				min-width: 100%;
+			}
+			/* padding between navbar and main content */
+			.mt-4, .my-4 {
+				margin-top: 0.5rem !important;
+			}
+			.vote-bar {
+				min-width: 2.5em;
+			}
 			/*sidebar width*/
 			 .col-md-4 {
-			     flex: 0 0 20% !important;
-			     max-width: 20%;
-			     padding-right: unset !important;
+				 flex: 0 0 20% !important;
+				 width: 20%;
 			}
 			/*main post area (witdh optimized for widescreen)*/
 			 .col-md-8 {
-			     flex: 0 0 80% !important;
-			     max-width: 80%;
+				 flex: 0 0 80% !important;
+				 width: 80%;
 			}
-			 .col-sm-2 {
-			     flex: 0 0 10% !important;
-			     max-width: 10%;
+			/* Fix user drop down menu position */
+			 .dropdown-content {
+				 right: 0px;
 			}
-			 .col-sm-9 {
-			     flex: 0 0 80% !important;
-			     max-width: 80%;
+			.dropdown-menu.show {
+				width: 100%;
 			}
-			 .col-8 {
-			     max-width: 100% !important;
+			hr {
+				display: none;
 			}
-			/* specific column combos that need padding adjustment*/
-			/* .col-12.col-md-8 {
-			     padding-left: unset !important;
+			/*table styles - primarily used on the "Communities" page*/
+			 .table-responsive {
+				 margin-top: 0.5em;
 			}
-			 */
-			/* .col-12.col-sm-9 {
-			     padding-left: unset !important;
+			 .table-sm td, .table-sm th {
+				 padding: 0.1rem;
+				 vertical-align: middle;
 			}
-			 */
-			/* navbar padding*/
-			 .navbar {
-			    /*padding-left: 0 !important;
-			    */
-			     padding-right: 1em !important;
+			/* user profile and community icons on posts */
+			.small > a > picture > img {
+				width: `+postPFPSize+`;
+				height: `+postPFPSize+`;
 			}
-			 .navbar-nav {
-			     margin-top: 0px !important;
-			     margin-bottom: 0px !important;
+			/************************/
+			/* Lemmy v0.17.4 hacks  */
+			/************************/
+			.col-sm-2 {
+				flex: 0 0 1%;
+				max-width: 16.66667%;
 			}
-			/* control vertical padding*/
-			 .mb-1, .my-1 {
-			     margin-bottom: 0.1rem !important;
+				ul.text-muted.small > li.list-inline-item > a > picture > img,
+				ul.text-muted.small > li.list-inline-item > span > a > picture > img{
+				height: 1.5em !important;
+				width: 1.5em !important;
 			}
-			 .mb-2, .my-2 {
-			     margin-bottom: 0.1rem !important;
+			/***************************/
+			/* main page post listing  */
+			/***************************/
+			/* post title font size*/
+			 .h5, h5 {
+				 `+postTitleFont+`
+				 margin-bottom: 0.1rem !important;
 			}
-			 .mt-3, .my-3 {
-			     margin-top: 0.1rem !important;
+   			/* enforce consistent spacing between posts in the post list*/
+			.post-listing {
+				margin-top: 0px !important;
+				min-height: `+(thumbnailSize+10)+`px;
 			}
-			 .mt-4, .my-4 {
-			     margin-top: 0.1rem !important;
+			/*hide link TLD until it is moved back to the old spot*/
+			 .small.m-0 {
+				 display: none !important;
+			}
+			/*comment number and fediverse/lemmy links*/
+			 .ps-0 {
+				 `+postFedLinks+`
+			}
+			/* highlight number of new comments */
+			 a > span.fst-italic {
+				 color: var(--bs-orange) !important;
+			}
+			/*media collapse/expand button - appears after post title for offsite links that have a thumbnail*/
+			 .btn.btn-sm.text-monospace.text-muted.d-inline-block {
+				 padding-top: 0;
+				 padding-bottom: 0;
+			}
+			 .text-body.mt-2.d-block{
+				 display: none !important;
 			}
 			/***************/
 			/* voting area */
 			/***************/
 			/*can be modified as you like*/
 			 .vote-bar {
-			    /*font-size: 0.85em !important;
-			    */
-			     flex: 0 0 4% !important;
-			     max-width: 4% !important;
-			     margin-top: 1em !important;
+				 `+voteBarFont+`
+				 flex: 0 0 4% !important;
+				 max-width: 4% !important;
+				 margin-top: `+voteBarTopMargin+` !important;
+			}
+			.col.flex-grow-0 {
+				align-self: center !important;
+			}
+			.small, small {
+				 font-size: `+smallTextFont+`;
+				 font-weight: 400;
 			}
 			/******************/
 			/* thumbnail area */
@@ -189,7 +242,7 @@
 				 max-height: `+thumbnailSize+`px !important;
 				 min-width: `+thumbnailSize+`px !important;
 				 max-width: `+thumbnailSize+`px !important;
-			         background-color: #333;
+			   background-color: #333;
 				 object-fit: scale-down; /* instead of "cover" */
 			}
 			/*this is needed for videos/gifs*/
@@ -200,66 +253,20 @@
 				 max-width: `+thumbnailSize+`px !important;
 			}
 			/*apply specific styling to text posts*/
-			.post-media a[href^="/post/"] .thumbnail {
+			a[href^="/post/"] .thumbnail {
 				border: 1px solid #333;
 				background-color: unset !important;
-			} 
-			/*******************/
-			/* main page posts */
-			/*******************/
-			/* post title font size*/
-			/*.h5, h5 {
-			     font-size: 1rem !important;
-			     margin-bottom: 0.1rem !important;
 			}
-			*/
-			/*.small, small {
-			     font-size: 80%;
-			     font-weight: 400;
-			}
-			*/
-			/*can be adjusted smaller, but beyond .25 is gets too tight and individual post spacing starts to appear overlapping*/
-			 .post-listing {
-			     margin: 0.25rem 0 !important;
-			     padding: 0.25rem 0 !important;
-			}
-			 .post-listing picture img.rounded-circle {
-			     width: 1.25rem;
-			     height: 1.25rem;
-			}
-			 p.d-flex.text-muted.align-items-center.gap-1.small.m-0 {
-			     display: none !important;
-			}
-			/*thumbnail width control (keep it square, dang it!)*/
-			 .post-listing .d-none .row .col-sm-2 {
-			     max-width: 100px;
-			}
-			 .post-listing .d-none .row .col-sm-9 {
-			     display: flex;
-			     align-items: unset !important;
-			}
-			/*comment number and fediverse/lemmy links*/
-			/* .ps-0 {
-			     font-size: 0.75rem !important;
-			}
-			*/
-			/*the below .btn is deprecated as .py-0 (above) provides more consistent spacing;
-			 however, some may prefer the look of smaller text on buttons*/
-			/*.btn {
-			     font-size:0.75rem !important;
-			}
-			/*media collapse/expand button - appears after post title for offsite links that have a thumbnail*/
-			 .btn.btn-sm.text-monospace.text-muted.d-inline-block {
-			     padding-top: 0;
-			     padding-bottom: 0;
-			}
-			 .text-body.mt-2.d-block{
-			     font-size: 0.8rem;
-			     display: none !important;
+			.px-0 {
+				max-height: `+thumbnailSize+`px !important;
 			}
 			/************/
 			/* comments */
 			/************/
+			/* Profile and Community Banner size */
+			 .position-relative.mb-2 {
+				 max-width: 730px;
+			}
 			/* restrict post and comment width - adjust to preference */
 			/* may use li[role="comment"] instead of .md-div - this fully restricts all comment elements (eg. divider lines_ */
 			 #postContent, .md-div, .alert-warning  {
@@ -279,69 +286,6 @@
    			/*increase the indent for child comments*/
 			 .ms-1 {
 				 margin-left: 1em !important;
-			}
-			/***********/
-			/* sidebar */
-			/***********/
-			 #sidebarContainer {
-				 padding-right: 1em;
-			}
-			/******************************/
-			/* entire page display tweaks */
-			/******************************/
-			 #app > div > .container-lg {
-				 margin-left: 1em !important;
-				 max-width: 99% !important;
-				 margin-left: unset !important;
-			}
-			 #app > nav > .container-lg {
-				 max-width: 100% !important;
-			}
-			 #app > navbar > .container-lg {
-				 margin-left: unset !important;
-			}
-			/* post index layout*/
-			 #app > .mt-4 > .container-lg hr.my-3 {
-				 display: none;
-			}
-			 #app > .mt-4 > .container-lg > .row {
-				 margin: unset !important;
-			}
-			/* post layout*/
-			 #app > .mt-4 > .container-lg > .row > main {
-				 max-width: 100%;
-			}
-			 #app > .mt-4 > .container-lg > .row > .col-md-8 {
-				 width: calc(100% - 450px);
-			}
-			 #app > .mt-4 > .container-lg > .row > .col-md-4 {
-				 width: 450px;
-			}
-			 hr {
-				 display: none;
-			}
-			/* highlight number of new comments */
-			 .text-muted.fst-italic {
-				 color: var(--bs-orange) !important;
-			}
-			/* Fix user drop down menu position*/
-			 .dropdown-content {
-				 right: 0px;
-			}
-			.dropdown-menu.show {
-				width: 100%;
-			}     
-			/* Profile and Community Banner size */
-			 .position-relative.mb-2 {
-				 max-width: 730px;
-			}
-			/*table styles - primarily used on the "Communities" page*/
-			 .table-responsive {
-				 margin-top: 0.5em;
-			}
-			 .table-sm td, .table-sm th {
-				 padding: 0.1rem;
-				 vertical-align: middle;
 			}
 			/**********************************************/
 			/** Specific screen size (mobile) adjustments */
@@ -414,7 +358,7 @@
 		const styleTag = document.createElement('style');
 		styleTag.appendChild(document.createTextNode(css));
 		document.head.appendChild(styleTag);
-		
+
 		/*append comment icon with "comment" text*/
 		var comm_count = document.querySelectorAll(".btn.btn-link.btn-sm.text-muted.ps-0");
 		comm_count.forEach(AppendCommentCountText);
