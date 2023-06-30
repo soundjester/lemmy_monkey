@@ -120,9 +120,9 @@
 			/***************/
 			/* main page   */
 			/***************/
-      :root{
-        --bs-body-font-size: 1rem;
-      }
+			:root{
+				--bs-body-font-size: 1rem;
+			}
 			.container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
 				max-width: 100% !important;
 			}
