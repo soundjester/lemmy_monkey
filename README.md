@@ -6,32 +6,34 @@ This script should work with Grease/Tamper/Violent (etc.) monkey userscript mana
 This script is (or should be) theme agnostic.  It has been tested with darlkly, darkly-red, litely, and litely-red.
 
 ## Script Options
-This script allows you to adjust thumbnail sizes to your preference.
-At the top of the script is a variable which you may change (if you desire).
-The current script defaults to a compact (small) thumbnail size of 70 x 70px.
+At the top of the script are two variables that are easiy customized: 
+- Adjust **thumbnail sizes** to your preference.
+  - The current script defaults to a compact (small) thumbnail size of 70 x 70px.
+- Adjust the **comment reading width** to your preference
+  - The current script defaults to a reading width of 940px.
+
 
 ## Installation
 
 ### Option A - Greasyfork
 
 1. Compact version (old.reddit.compact.user.js) - https://greasyfork.org/en/scripts/469093-compact-lemmy-to-old-reddit-re-format-observer
-2. Larger thumbnails (old.reddit.user.js) - https://greasyfork.org/en/scripts/469094-lemmy-to-old-reddit-re-format-observer
+ - This version also accomodates larger thumbnail sizes for those that desire a more picture-oriented user experience
+ - Font sizes, spacing, and alignment will adjust based on the user-indicated thumbnail size
 
 ### Option B - Direct from github
 
-1. Click your desired script from the shared code
+1. Click the userscript from the shared code
 2. Click the "Raw" button at on the top right of the script header area
 3. Proceed according to the instructions for your userscript manager
 
 ## Screenshots of available scripts
 
-### old.reddit.user.js
-![old.reddit screenshot](https://github.com/soundjester/lemmy_monkey/blob/ff2fcc2ce43f908f123e3f8114164dfd5a96d580/screenshots/old.reddit.png)
-
-
 ### old.reddit.compact.user.js
 ![old.reddit.compact screenshot](https://github.com/soundjester/lemmy_monkey/blob/ff2fcc2ce43f908f123e3f8114164dfd5a96d580/screenshots/old.reddit.compact.png)
 
+### above script with larger thumbnail version (100px selected)
+![old.reddit screenshot](https://github.com/soundjester/lemmy_monkey/blob/ff2fcc2ce43f908f123e3f8114164dfd5a96d580/screenshots/old.reddit.png)
 
 # Mobile and smaller screens (Compact version)
 
