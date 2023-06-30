@@ -27,24 +27,24 @@
 		isLemmy = false;
 	}
 
-  /*modify the presentation of fonts based on thumbnail size - larger thumbnails make resized test look a little silly...*/
-  if(thumbnailSize<100){
-    var postTitleFont = "font-size: 1rem !important;";
-    var voteBarFont = "font-size: 0.95em !important;";
-    var voteBarTopMargin = "unset";
-    var smallTextFont = "80%";
-    var postPFPSize = "20px";
-    var postFedLinks = "font-size: 0.75rem !important;";
-  } else {
-    var postTitleFont = "";
-    var voteBarFont = "";
-    var voteBarTopMargin = "unset"
-    var smallTextFont = "unset !important;";
-    var postPFPSize = "";
-    var postFedLinks = "";
-  }
+	/*modify the presentation of fonts based on thumbnail size - larger thumbnails make resized test look a little silly...*/
+	if(thumbnailSize<100){
+		var postTitleFont = "font-size: 1rem !important;";
+		var voteBarFont = "font-size: 0.95em !important;";
+		var voteBarTopMargin = "unset";
+		var smallTextFont = "80%";
+		var postPFPSize = "20px";
+		var postFedLinks = "font-size: 0.75rem !important;";
+	} else {
+		var postTitleFont = "";
+		var voteBarFont = "";
+		var voteBarTopMargin = "unset"
+		var smallTextFont = "unset !important;";
+		var postPFPSize = "";
+		var postFedLinks = "";
+	}
 
-	function AppendCommentCountText(container) {
+	async function AppendCommentCountText(container) {
 		var svgElem = container.querySelectorAll("svg")[0].outerHTML;
 		var numComms = container.title;
 		var spanElem = container.querySelectorAll("span");
@@ -55,7 +55,7 @@
 		container.innerHTML = svgElem + numComms + spanElemHTML;
 	}
 
-	function ApplyCommentCountText(element) {
+	async function ApplyAppendCommentCountText(element) {
 		const observer = new MutationObserver(function(mutationsList) {
 			for (let mutation of mutationsList) {
 				if (mutation.type === 'childList') {
@@ -75,7 +75,7 @@
 		observer.observe(element, { childList: true, subtree: true });
 	}
 
-	function AppendPostURL(container) {
+	async function AppendPostURL(container) {
 		var tld_link = container.querySelectorAll(".small.m-0")[0];
 		var post_details = container.querySelectorAll("div.small")[0];
 		if (tld_link) {
@@ -84,13 +84,13 @@
 		}
 	}
 
-	function ApplyAppendPostURL(element) {
+	async function ApplyAppendPostURL(element) {
 		const observer = new MutationObserver(function(mutationsList) {
 			for (let mutation of mutationsList) {
 				if (mutation.type === 'childList') {
 					for (let addedNode of mutation.addedNodes) {
 						try {
-							var comm_count = addedNode.querySelectorAll("article > .col-12.col-sm-9 > .row > .col-12");
+							var comm_count = addedNode.querySelectorAll(".col.flex-grow-1 > div.row > div.col.flex-grow-1");
 							comm_count.forEach(AppendPostURL);
 						} catch (_er) {
 							console.log(_er);
@@ -107,6 +107,16 @@
 	// Lemmy to old.Reddit style reformats (portable custom stylesheet)
 	if (isLemmy) {
 		const css = `
+			/**************************/
+			/* NSFW automatic un-blur */
+			/**************************/
+			 .img-blur {
+				 filter: none !important;
+				 -webkit-filter: none !important;
+				 -moz-filter: none !important;
+				 -o-filter: none !important;
+				 -ms-filter: none !important;
+			}
 			/***************/
 			/* main page   */
 			/***************/
@@ -143,10 +153,6 @@
 				 `+postTitleFont+`
 				 margin-bottom: 0.1rem !important;
 			}
-			/* highlight number of new comments */
-			 .text-muted.fst-italic {
-				 color: var(--bs-orange) !important;
-			}
 			/*hide link TLD until it is moved back to the old spot*/
 			 .small.m-0 {
 				 display: none !important;
@@ -156,7 +162,7 @@
 				 `+postFedLinks+`
 			}
 			/* highlight number of new comments */
-			 .text-muted.fst-italic {
+			 a > span.fst-italic {
 				 color: var(--bs-orange) !important;
 			}
 			/* Fix user drop down menu position*/
@@ -263,7 +269,6 @@
 			 .ms-1 {
 				 margin-left: 1em !important;
 			}`
-
 		const styleTag = document.createElement('style');
 		styleTag.appendChild(document.createTextNode(css));
 		document.head.appendChild(styleTag);
@@ -271,6 +276,9 @@
 		/*append comment icon with "comment" text*/
 		var comm_count = document.querySelectorAll(".btn.btn-link.btn-sm.text-muted.ps-0");
 		comm_count.forEach(AppendCommentCountText);
+
+		/* Apply AppendCommentCountText to dynamically loaded elements */
+		ApplyAppendCommentCountText(document.documentElement);
 
 		/*append post TLD link to post detail area*/
 		var post_info = document.querySelectorAll(".col.flex-grow-1 > div.row > div.col.flex-grow-1");
