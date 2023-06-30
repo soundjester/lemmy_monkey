@@ -38,7 +38,7 @@
   } else {
     var postTitleFont = "";
     var voteBarFont = "";
-    var voteBarTopMargin = "1em";
+    var voteBarTopMargin = "unset"
     var smallTextFont = "unset !important;";
     var postPFPSize = "";
     var postFedLinks = "";
@@ -196,6 +196,9 @@
 				 flex: 0 0 4% !important;
 				 max-width: 4% !important;
 				 margin-top: `+voteBarTopMargin+` !important;
+			}
+			.col.flex-grow-0 {
+				align-self: center !important;
 			}
 			.small, small {
 				 font-size: `+smallTextFont+`;
