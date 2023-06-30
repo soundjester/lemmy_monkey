@@ -43,7 +43,7 @@
 		var postFedLinks = "";
 	}
 
-	async function AppendCommentCountText(container) {
+	function AppendCommentCountText(container) {
 		var svgElem = container.querySelectorAll("svg")[0].outerHTML;
 		var numComms = container.title;
 		var spanElem = container.querySelectorAll("span");
@@ -52,8 +52,8 @@
 			spanElemHTML = " " + spanElem[0].outerHTML
 		}
 		container.innerHTML = svgElem + numComms + spanElemHTML;
+    		return;
 	}
-
 	async function ApplyCommentCountText(element) {
 		const observer = new MutationObserver(function(mutationsList) {
 			for (let mutation of mutationsList) {
@@ -63,7 +63,6 @@
 							var comm_count = addedNode.querySelectorAll(".btn.btn-link.btn-sm.text-muted.ps-0");
 							comm_count.forEach(AppendCommentCountText);
 						} catch (_er) {
-							console.log(_er);
 							return;
 						}
 					}
@@ -74,15 +73,15 @@
 		observer.observe(element, { childList: true, subtree: true });
 	}
 
-	async function AppendPostURL(container) {
+	function AppendPostURL(container) {
 		var tld_link = container.querySelectorAll(".d-flex.text-muted.align-items-center.gap-1.small.m-0")[0];
 		var post_details = container.querySelectorAll("span.small")[0];
 		if (tld_link) {
 			var post_detail = tld_link.nextSibling.innerText;
 			post_details.innerHTML += " • " + tld_link.innerHTML
 		}
+    		return;
 	}
-
 	async function ApplyAppendPostURL(element) {
 		const observer = new MutationObserver(function(mutationsList) {
 			for (let mutation of mutationsList) {
@@ -92,7 +91,6 @@
 							var comm_count = addedNode.querySelectorAll("article > .col-12.col-sm-9 > .row > .col-12");
 							comm_count.forEach(AppendPostURL);
 						} catch (_er) {
-							console.log(_er);
 							return;
 						}
 					}
@@ -168,6 +166,18 @@
 				width: `+postPFPSize+`;
 				height: `+postPFPSize+`;
 			}
+			/************************/
+			/* Lemmy v0.17.4 hacks  */
+			/************************/
+			.col-sm-2 {
+				flex: 0 0 1%;
+				max-width: 16.66667%;
+			}
+				ul.text-muted.small > li.list-inline-item > a > picture > img,
+				ul.text-muted.small > li.list-inline-item > span > a > picture > img{
+				height: 1.5em !important;
+				width: 1.5em !important;
+			}
 			/***************************/
 			/* main page post listing  */
 			/***************************/
@@ -175,6 +185,11 @@
 			 .h5, h5 {
 				 `+postTitleFont+`
 				 margin-bottom: 0.1rem !important;
+			}
+   			/* enforce consistent spacing between posts in the post list*/
+			.post-listing {
+				margin-top: 0px !important;
+				min-height: `+(thumbnailSize+10)+`px;
 			}
 			/*hide link TLD until it is moved back to the old spot*/
 			 .small.m-0 {
