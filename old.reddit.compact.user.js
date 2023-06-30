@@ -32,7 +32,7 @@
 		var postTitleFont = "font-size: 1rem !important;";
 		var voteBarFont = "font-size: 0.95em !important;";
 		var voteBarTopMargin = "unset";
-		var smallTextFont = "80%";
+		var smallTextFont = "75%";
 		var postPFPSize = "20px";
 		var postFedLinks = "font-size: 0.75rem !important;";
 	} else {
@@ -120,6 +120,9 @@
 			/***************/
 			/* main page   */
 			/***************/
+      :root{
+        --bs-body-font-size: 1rem;
+      }
 			.container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
 				max-width: 100% !important;
 			}
