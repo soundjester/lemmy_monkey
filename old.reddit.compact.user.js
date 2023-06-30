@@ -129,9 +129,9 @@
 				min-width: 100%;
 			}
 			/* padding between navbar and main content */
-      .mt-4, .my-4 {
-        margin-top: 0.5rem !important;
-      }
+			.mt-4, .my-4 {
+				margin-top: 0.5rem !important;
+			}
 			.vote-bar {
 				min-width: 2.5em;
 			}
