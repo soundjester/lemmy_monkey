@@ -110,6 +110,9 @@
 			/***************/
 			/* main page   */
 			/***************/
+			.container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+				max-width: 100% !important;
+			}
 			.home, .post {
 				max-width: 100%;
 			}
@@ -119,8 +122,8 @@
 			.vote-bar {
 				min-width: 2.5em;
 			}
-			 hr {
-				 display: none;
+			hr {
+				display: none;
 			}
 			/*sidebar width*/
 			 .col-md-4 {
@@ -239,7 +242,7 @@
 			}
 			/* restrict post and comment width - adjust to preference */
 			/* may use li[role="comment"] instead of .md-div - this fully restricts all comment elements (eg. divider lines_ */
-			 #postContent, .md-div, .comments, .alert-warning  {
+			 #postContent, .md-div, .alert-warning  {
 				 max-width: `+readingWidth+`px;
 			}
 			 .mb-3.row {
