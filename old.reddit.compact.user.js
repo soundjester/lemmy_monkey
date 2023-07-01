@@ -164,6 +164,11 @@
 			.post-listing {
 				margin-top: 0px !important;
 				min-height: `+(thumbnailSize+10)+`px;
+			}
+			/* let post titles use all the space between the thumbnail and sidebar */
+			.col-12, .row > * {
+				width: unset;
+				max-width: unset;
 			}   
 			/*hide link TLD until it is moved back to the old spot*/
 			 .small.m-0 {
