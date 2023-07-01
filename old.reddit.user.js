@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Compact Lemmy to old.Reddit Re-format (Lemmy v0.18)
+// @name         Lemmy to old.Reddit Re-format (Lemmy v0.18)
 // @namespace    https://github.com/soundjester/lemmy_monkey
 // @description  Reformat widescreen desktop to look more like Reddit
 // @version      2.5
