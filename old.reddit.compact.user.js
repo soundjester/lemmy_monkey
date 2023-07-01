@@ -133,9 +133,9 @@
 				min-width: 100%;
 			}
 			/* padding between navbar and main content */
-      .mt-4, .my-4 {
-        margin-top: 0.5rem !important;
-      }
+			.mt-4, .my-4 {
+				margin-top: 0.5rem !important;
+			}
 			.vote-bar {
 				min-width: 3.5em;
 			}
@@ -160,6 +160,11 @@
 				 `+postTitleFont+`
 				 margin-bottom: 0.1rem !important;
 			}
+   			/* enforce consistent spacing between posts in the post list*/
+			.post-listing {
+				margin-top: 0px !important;
+				min-height: `+(thumbnailSize+10)+`px;
+			}   
 			/*hide link TLD until it is moved back to the old spot*/
 			 .small.m-0 {
 				 display: none !important;
@@ -200,9 +205,9 @@
 				width: `+postPFPSize+`;
 				height: `+postPFPSize+`;
 			}
-      .mb-md-0 {
-        margin-top: 0.2rem;
-      }
+			.mb-md-0 {
+				margin-top: 0.2rem;
+			}
 			/***************/
 			/* voting area */
 			/***************/
