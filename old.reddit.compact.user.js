@@ -145,7 +145,7 @@
 			/*sidebar width*/
 			 .col-md-4 {
 				 flex: 0 0 20% !important;
-				 width: 20%;
+				 width: 20% !important;
 			}
 			/*main post area (witdh optimized for widescreen)*/
 			 .col-md-8 {
