@@ -16,7 +16,7 @@
 	/* 70px - compact default          */
 	/* 100px - large thumbnail default */
 	/***********************************/
- 	var thumbnailSize = 100;
+ 	var thumbnailSize = 70;
  	var readingWidth = 940; /*controls the width of comments and text posts on individual post pages - default=940*/
 	/***********************************/
 	//Thank you God!
@@ -136,12 +136,13 @@
 			/*sidebar width*/
 			 .col-md-4 {
 				 flex: 0 0 20% !important;
-				 width: 20%;
+				 width: 20% !important;
 			}
 			/*main post area (witdh optimized for widescreen)*/
 			 .col-md-8 {
 				 flex: 0 0 80% !important;
 				 width: 80%;
+			         max-width: unset;
 			}
 			/* Fix user drop down menu position */
 			 .dropdown-content {
