@@ -3,10 +3,10 @@ A *monkey script to restyle Lemmy to a more old.reddit look
 
 This script should work with Grease/Tamper/Violent (etc.) monkey userscript managers.
 
-This script is (or should be) theme agnostic.  It has been tested with darlkly, darkly-red, litely, and litely-red.
+This script is (or should be) theme agnostic.  It has been tested with darkly, darkly-red, litely, and litely-red.
 
 ## Script Options
-At the top of the script are two variables that are easiy customized: 
+At the top of the script are two variables that are easily customized: 
 - Adjust **thumbnail sizes** to your preference.
   - The current script defaults to a compact (small) thumbnail size of 70 x 70px.
 - Adjust the **comment reading width** to your preference
@@ -18,7 +18,7 @@ At the top of the script are two variables that are easiy customized:
 ### Option A - Greasyfork
 
 1. Compact version (old.reddit.compact.user.js) - https://greasyfork.org/en/scripts/469093-compact-lemmy-to-old-reddit-re-format-observer
- - This version also accomodates larger thumbnail sizes for those that desire a more picture-oriented user experience
+ - This version also accommodates larger thumbnail sizes for those that desire a more picture-oriented user experience
  - Font sizes, spacing, and alignment will adjust based on the user-indicated thumbnail size
 
 ### Option B - Direct from github
