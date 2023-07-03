@@ -2,7 +2,7 @@
 // @name         Compact Lemmy to old.Reddit Re-format (Lemmy v0.18)
 // @namespace    https://github.com/soundjester/lemmy_monkey
 // @description  Reformat widescreen desktop to look more like Reddit
-// @version      2.5
+// @version      2.6
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822, Jakylla
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
 // @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/main/old.reddit.compact.user.js
@@ -136,12 +136,13 @@
 			/*sidebar width*/
 			 .col-md-4 {
 				 flex: 0 0 20% !important;
-				 width: 20%;
+				 width: 20% !important;
 			}
 			/*main post area (witdh optimized for widescreen)*/
 			 .col-md-8 {
 				 flex: 0 0 80% !important;
 				 width: 80%;
+			         max-width: unset;
 			}
 			/* Fix user drop down menu position */
 			 .dropdown-content {
@@ -308,18 +309,20 @@
 				}
 			}
 			 @media screen and (max-width: 1199px) and (min-width: 992px) {
-			        .col-12 {
-				          flex: 0 0 100% !important;
-				          max-width: 75%;
-			        }
-				 .col-md-4 {
-					 flex: 0 0 25% !important;
-					 max-width: 25%;
+				.col-12 {
+					flex: 1 0 75% !important;
 				}
-			        .vote-bar {
-				          flex: 0 0 8% !important;
-				          max-width: 8% !important;
-			        }
+				.col-md-4 {
+					flex: 0 0 25% !important;
+					max-width: 25%;
+				}
+				.vote-bar {
+					flex: 0 0 8% !important;
+					max-width: 8% !important;
+				}
+				.col-sm-9 {
+					max-width: unset !important;
+				}
 			}
 			 @media screen and (max-width: 768px) and (min-width: 576px) {
 			        .col-12 {
@@ -341,7 +344,6 @@
 				}
 				 .col-12 {
 					 flex: 0 0 100% !important;
-					 max-width: 100%;
 				}
 				 .col-8 {
 					 flex: 0 0 75% !important;
