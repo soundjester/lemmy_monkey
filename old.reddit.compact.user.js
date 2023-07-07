@@ -121,7 +121,7 @@
 			/* main page   */
 			/***************/
 			:root{
-				--bs-body-font-size: 0.9375rem;
+				--bs-body-font-size: 1rem;
 			}
 			.container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
 				max-width: 100% !important;
@@ -147,6 +147,11 @@
 				 flex: 0 0 20% !important;
 				 width: 20% !important;
 			}
+   			/* adjust size of sidebar subscribed community icons */
+			#sidebarSubscribedBody > div.card-body > ul > li a > picture > img {
+				width: 2em !important;
+				height: 2em !important;
+			}
 			/*main post area (witdh optimized for widescreen)*/
 			 .col-md-8 {
 				 flex: 0 0 80% !important;
@@ -169,7 +174,7 @@
 			.col-12, .row > * {
 				width: unset;
 				max-width: unset;
-			}   
+			}
 			/*hide link TLD until it is moved back to the old spot*/
 			 .small.m-0 {
 				 display: none !important;
@@ -245,7 +250,7 @@
 				 min-width: `+thumbnailSize+`px !important;
 				 max-width: `+thumbnailSize+`px !important;
 			   background-color: #333;
-				 object-fit: scale-down; /* instead of "cover" */
+				 object-fit: scale-down !important; /* instead of "cover" */
 			}
 			/*this is needed for videos/gifs*/
 			 .embed-responsive {
