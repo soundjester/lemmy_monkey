@@ -15,6 +15,8 @@ At the top of the script are two variables that are easily customized:
 
 ## Installation
 
+SPECIAL NOTE: If your instance in on an 0.18.1 RC version, check the branch for a script that will work for you.
+
 ### Option A - Greasyfork
 
 1. Compact version (old.reddit.compact.user.js) - https://greasyfork.org/en/scripts/469093-compact-lemmy-to-old-reddit-re-format-observer
