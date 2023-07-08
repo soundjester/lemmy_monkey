@@ -2,7 +2,7 @@
 // @name         Compact Lemmy to old.Reddit Re-format (UI 0.18.1 rc.7)
 // @namespace    https://github.com/soundjester/lemmy_monkey
 // @description  Reformat widescreen desktop to look more like Reddit
-// @version      0.1
+// @version      2.6
 // @author       mershed_perderders, DarkwingDuck, dx1@lemmy.world, Djones4822, Jakylla
 // @updateURL    https://github.com/soundjester/lemmy_monkey/raw/dev-v.01-Lemmy-v.18.1/old.reddit.compact.user.js
 // @downloadURL  https://github.com/soundjester/lemmy_monkey/raw/dev-v.01-Lemmy-v.18.1/old.reddit.compact.user.js
@@ -29,7 +29,7 @@
 
 	/*modify the presentation of fonts based on thumbnail size - larger thumbnails make resized test look a little silly...*/
 	if(thumbnailSize<100){
-		var postTitleFont = "font-size: 1rem !important;";
+		var postTitleFont = "font-size: 1.15rem !important;";
 		var voteBarFont = "font-size: 0.95em !important;";
 		var voteBarTopMargin = "unset";
 		var smallTextFont = "80%";
@@ -293,6 +293,9 @@
    			/*increase the indent for child comments*/
 			 .ms-1 {
 				 margin-left: 1em !important;
+			}
+			mark, .mark {
+				background-color: var(--bs-dark-bg-subtle) !important;
 			}
 			/**********************************************/
 			/** Specific screen size (mobile) adjustments */
